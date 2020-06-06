@@ -1,0 +1,260 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+<?php
+$helper = $this->helper('Solwin\Cpanel\Helper\Data');
+$baseUrl = $helper->getBaseUrl();
+$curr_Url = $helper->getCurrentUrl();
+$ishome = $helper->getIsHomePage();
+$showhomelink = $helper->getEnablehomelink();
+?>
+
+<nav class="navigation" role="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?php if ($showhomelink) { ?>
+                                        <li class="level0 level-top <?php if ($ishome) { ?> active <?php } ?>">
+                                            <a class="level-top" href="<?php echo $baseUrl; ?>">
+                                                Home
+                                            </a>
+                                        </li>
+        <?php } ?>
+        <?php /* @escapeNotVerified */ echo $_menu; ?>
+
+        <?php
+//        function categoryLoop($id){
+//        global $i;
+//        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+//        $categories = $objectManager->create('Magento\Catalog\Model\Category')->load($id);
+//
+//        if($categories->hasChildren()){
+//        echo "<ul>";
+//            $subcategories = explode(',', $categories->getChildren());
+//            foreach ($subcategories as $category) {
+//                $subcategory = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+//                echo "<li class='browse-li' ><u>".$subcategory->getName()."</u></li>";
+//                if($subcategory->hasChildren()){ categoryLoop($category); }
+//                $i++;
+//            }
+//        echo "</ul>";
+//        }
+//    }
+//    categoryLoop(2);
+        ?>
+
+<!--        <li class="level0 nav-2 category-item level-top parent ui-menu-item">
+            <a class="level-top ui-corner-all">
+                <span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>
+                <span>Jeep Parts</span>
+            </a>
+            <ul class="level0 submenu ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" aria-expanded="false" style="display: none; top: 55px; left: -0.421875px;" aria-hidden="true">
+                <li class="level1 nav-4-1 category-item first ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/accessories/bumpers.html" id="ui-id-79" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Bumpers</span>
+                    </a>
+                    <ul class="level1 submenu ui-menu ui-widget ui-widget-content ui-corner-all expanded" role="menu" aria-expanded="false" style="display: none; top: 30px; left: 0px;" aria-hidden="true">
+                        <?php
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of Object Manager
+                        $categoryFactory = $objectManager->get('\Magento\Catalog\Model\CategoryFactory'); // Instance of Category Model
+                        $categoryId = 10; // YOUR CATEGORY ID
+                        $category = $categoryFactory->create()->load($categoryId);
+                        // Parent Categories
+                        $parentCategories = $category->getParentCategories();
+                        // Children  Categories
+                        $childrenCategories = $category->getChildrenCategories();
+                        foreach ($childrenCategories as $temp) {
+                            echo '<li class="level2 nav-1-1-1 category-item first ui-menu-item" role="presentation"><a href="' . $temp->getUrl() . '">' . $temp->getName() . '</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Interior</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Exterior</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Liftkits</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Lights</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Performance</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Sidesteps</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Suspension/Steerings</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Tires</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Wheels</span>
+                    </a>
+                </li>
+                <li class="level1 nav-4-2 category-item last ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/wheel-tire/wheels.html" id="ui-id-80" class="ui-corner-all" tabindex="-1" role="menuitem">
+                        <span>Whinchs</span>
+                    </a>
+                </li>
+            </ul>
+        </li>-->
+        <li class="level0 nav-2 category-item level-top parent ui-menu-item"><a class="level-top ui-corner-all" href="<?= $block->getUrl('') ?>about-jeepsters"><span>About Us</span></a></li>
+        <li class="level0 nav-2 category-item level-top parent ui-menu-item"><a class="level-top ui-corner-all" href="<?= $block->getUrl('packages.html') ?>"><span>Packages</span></a></li>
+        <li class="level0 nav-2 category-item level-top parent ui-menu-item search_window"><a class="level-top ui-corner-all" ><span>Search</span></a></li>
+    </ul>
+</nav>
+
+
+
+
+
+
+<!--<nav class="navigation" role="navigation">
+    <ul id="ui-id-2" class="ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" tabindex="0" aria-activedescendant="ui-id-3">
+                <li class="level0 nav-1 category-item first level-top parent ui-menu-item" role="presentation">
+                    <a href="https://jeepster.99stockpics.com/accessories.html" class="level-top ui-corner-all" aria-haspopup="true" id="ui-id-3" tabindex="-1" role="menuitem">
+                        <span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>
+                        <span>Accessories</span>
+                    </a>
+                    <ul class="level0 submenu ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" aria-expanded="false" style="display: none;top: 55px;left: -0.03125px;" aria-hidden="true">
+                        <li class="level1 nav-1-1 category-item first parent ui-menu-item" role="presentation">
+                            <a href="https://jeepster.99stockpics.com/accessories/bumpers.html" aria-haspopup="true" id="ui-id-12" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                <span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>
+                                <span>Bumpers</span>
+                            </a>
+                            <ul class="level1 submenu ui-menu ui-widget ui-widget-content ui-corner-all expanded" role="menu" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                <li class="level2 nav-1-1-1 category-item first ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/bumpers/front-bumper.html" id="ui-id-23" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Front bumper</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-1-2 category-item last ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/bumpers/bumper-adaptor.html" id="ui-id-24" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Bumper adaptor</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="level1 nav-1-2 category-item ui-menu-item" role="presentation">
+                            <a href="https://jeepster.99stockpics.com/accessories/doors.html" id="ui-id-13" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                <span>Doors</span>
+                            </a>
+                        </li>
+                        <li class="level1 nav-1-11 category-item last parent ui-menu-item" role="presentation">
+                            <a href="https://jeepster.99stockpics.com/accessories/lights.html" aria-haspopup="true" id="ui-id-22" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                <span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>
+                                <span>Lights</span>
+                            </a>
+                            <ul class="level1 submenu ui-menu ui-widget ui-widget-content ui-corner-all expanded" role="menu" aria-hidden="true" aria-expanded="false" style="display: none;">
+                                <li class="level2 nav-1-11-1 category-item first ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/40-50.html" id="ui-id-49" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>40"-50"</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-2 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/10-30.html" id="ui-id-50" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>10"-30"</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-3 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/5-10.html" id="ui-id-51" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>5"-10"</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-4 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/1-5.html" id="ui-id-52" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>1"-5"</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-5 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/round.html" id="ui-id-53" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Round</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-6 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/windshield-light-kit.html" id="ui-id-54" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Windshield light kit</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-7 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/headlights.html" id="ui-id-55" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Headlights</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-8 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/tail-lights.html" id="ui-id-56" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Tail lights</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-9 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/fog-lights.html" id="ui-id-57" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Fog lights</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-10 category-item ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/turn-signals.html" id="ui-id-58" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Turn signals</span>
+                                    </a>
+                                </li>
+                                <li class="level2 nav-1-11-11 category-item last ui-menu-item" role="presentation">
+                                    <a href="https://jeepster.99stockpics.com/accessories/lights/marker-light.html" id="ui-id-59" class="ui-corner-all" tabindex="-1" role="menuitem">
+                                        <span>Marker light</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+    </ul>
+</nav>-->
+<style>
+    .navigation .level0 .submenu li.parent > a::after {
+        display:none;
+    }
+</style>
+<script>
+    require(['jquery'], function ($) {
+        jQuery(document).on('click', '.search_window', function () {
+            jQuery(this).css({'visibility':'hidden'});
+            jQuery('.block.block-search').css({'visibility':'visible'});
+        });
+        jQuery(document).on('click', '.search_window_close', function () {
+            jQuery('.block.block-search').css({'visibility':'hidden'});
+            jQuery('.search_window').css({'visibility':'visible'});
+        });
+    });
+</script>

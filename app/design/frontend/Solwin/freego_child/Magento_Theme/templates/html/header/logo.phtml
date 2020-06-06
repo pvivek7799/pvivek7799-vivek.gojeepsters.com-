@@ -1,0 +1,109 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+?>
+<?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt(); ?>
+<span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @escapeNotVerified */ __('Toggle Nav') ?></span></span>
+<div class="head_blck logo_sec">
+    <a class="logo" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>">
+        <img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+             title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+             alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+             />
+        <br />
+        <h2 class="logo_title">Gojeepsters.com</h2>
+    </a>
+</div>
+<div class="head_blck header_img_sec">
+    <div class="img_blck custom">
+        <a href="/build-your-jeep">
+            <img src="/pub/media/wysiwyg/gojeep.jpg">
+        </a>
+    </div>
+</div>
+<div class="head_blck header_address">
+    <div class="adresses">
+        <div class="head-cls" style="padding-right: 2em;">
+            <span style="font-size: 16px; font-weight: 800;">Jeepsters Tampa Fl</span><br>
+            6102 E Adamo Dr<br>
+            <span style="font-size: 16px;">Tampa Fl 33619</span><br>
+            <span style="font-size: 16px;font-weight: 800;color: #fe9b4b;">1-813-605-2244</span><br>
+            <a href="mailto:tampa@gojeepsters.com" style="color: #000;">tampa@gojeepsters.com</a>
+        </div>
+        <div class="head-cls">
+            <span style="font-size: 16px; font-weight: 800;">Jeepsters Largo Fl</span><br>
+            6875 Ulmerton Rd<br>
+            <span style="font-size: 16px;">Largo Fl 33771</span><br>
+            <span style="font-size: 16px;font-weight: 800;color: #fe9b4b;">1-727-538-0086</span><br>
+            <a href="mailto:largo@gojeepsters.com" style="color: #000;">largo@gojeepsters.com</a>
+        </div>
+        <div class="head-cls store_details">
+            <p><strong>Store Hours:</strong><br>Monday - Friday 8:30am - 5pm<br>Saturday 10am - 2pm<br>Sunday closed.</p>
+        </div>
+    </div>
+</div>
+<style>
+    .head_blck{
+        float: left;
+        width: 33%;
+        padding-top: 2em;
+    }
+    .head_blck.header_address{
+        padding-top: 1em;
+    }
+    .header_img_sec .img_blck.custom{
+        width: 240px;
+        margin: 0 auto;
+    }
+    .head-cls {
+        width: 150px;
+        float: left;
+        padding-top: 1em;
+    }
+    .head-cls.store_details{
+        width: 200px;
+    }
+    .store_details strong{
+        font-size: 16px;
+    }
+    @media screen and (max-width: 767px) {
+        .head_blck{
+            width: 100%;
+        }
+        .head_blck .head-cls{
+            width: 100%;
+            text-align: center;
+        }
+    }
+    @media screen and (min-width: 768px) and (max-width: 950px) {
+        .head_blck.logo_sec{
+            width: 20%;
+        }
+        .head_blck.header_img_sec{
+            width: 28%;
+        }
+        .head_blck.header_address{
+            width: 52%;
+        }
+        .header_img_sec .img_blck.custom{
+            width: 185px;
+        }
+    }
+    @media screen and (min-width: 951px) and (max-width: 1123px) {
+        .head_blck{
+            width: 30%;
+        }
+        .head_blck.header_address{
+            width: 40%;
+        }
+    }
+</style>

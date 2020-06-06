@@ -1,0 +1,22 @@
+{
+    "name": "mageworld/onestepcheckout",
+    "description": "Mage World - One Step Checkout Pro extension",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
+        "magento/framework": "^100.1||^101.0"
+    },
+    "type": "magento2-module",
+    "version": "2.0.3",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MW\\Onestepcheckout\\": ""
+        }
+    }
+}

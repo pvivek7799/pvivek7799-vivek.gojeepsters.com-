@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright 2019 aheadWorks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Aheadworks\AdvancedReports\Block\Adminhtml\View\IndexInfo $block */
+?>
+<div class="messages">
+    <div class="message message-notice notice">
+        <div data-ui-id="messages-message-notice">
+            <?php echo $block->escapeHtml($block->showLastIndexUpdate()) ?>
+            <?php if($block->canShowScheduleMessage()): ?>
+                <?php echo $block->escapeHtml(__('To schedule Advanced Reports index update click')); ?>
+                <a href="<?php echo $block->escapeUrl($block->getIndexUpdateUrl()); ?>">
+                    <?php echo $block->escapeHtml(__('here')) ?>
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>

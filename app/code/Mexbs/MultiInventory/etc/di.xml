@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\CatalogInventory\Model\StockRegistryProvider">
+        <plugin name="stockRegistryProviderFallBackToDefault" type="Mexbs\MultiInventory\Model\Plugin\StockRegistryProvider"/>
+    </type>
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Stock\StockCriteria">
+        <plugin name="stockCriteriaSetWebsiteFilter" type="Mexbs\MultiInventory\Model\Plugin\StockCriteria"/>
+    </type>
+    <type name="Magento\CatalogSearch\Model\Indexer\Fulltext\Action\Full">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Mexbs\MultiInventory\Model\Rewrite\CatalogSearch\Fulltext\DataProvider</argument>
+        </arguments>
+    </type>
+    <type name="Magento\CatalogSearch\Model\Indexer\Fulltext\Action\IndexIterator">
+        <arguments>
+            <argument name="dataProvider" xsi:type="object">Mexbs\MultiInventory\Model\Rewrite\CatalogSearch\Fulltext\DataProvider</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\CatalogInventory\Model\Stock\StockItemRepository">
+        <plugin name="stockCriteriaSetWebsiteFilter" type="Mexbs\MultiInventory\Model\Plugin\StockItemRepository"/>
+    </type>
+    <type name="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty">
+        <plugin name="defaultStockQtyFixScopeNotProvided" type="Mexbs\MultiInventory\Model\Plugin\DefaultStockqty"/>
+    </type>
+    <type name="Magento\CatalogInventory\Helper\Stock">
+        <plugin name="helperStockRestrictActiveStockItems" type="Mexbs\MultiInventory\Model\Plugin\HelperStock"  sortOrder="1000"/>
+    </type>
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Stock">
+        <plugin name="resourceModelStockFilterCollectionByCurrentScope" type="Mexbs\MultiInventory\Model\Plugin\ResourceModelStock"/>
+    </type>
+    <preference for="Magento\CatalogInventory\Ui\DataProvider\Product\AddQuantityFieldToCollection" type="Mexbs\MultiInventory\Ui\Rewrite\DataProvider\Product\AddQuantityFieldToCollection" />
+    <preference for="Magento\CatalogInventory\Model\StockState" type="Mexbs\MultiInventory\Model\Rewrite\StockState" />
+    <preference for="Magento\CatalogInventory\Model\ResourceModel\Stock" type="Mexbs\MultiInventory\Model\Rewrite\ResourceModel\Stock" />
+    <preference for="Magento\CatalogInventory\Model\StockManagement" type="Mexbs\MultiInventory\Model\Rewrite\StockManagement" />
+    <preference for="Magento\CatalogInventory\Model\StockRegistry" type="Mexbs\MultiInventory\Model\Rewrite\StockRegistry" />
+    <preference for="Magento\CatalogInventory\Helper\Stock" type="Mexbs\MultiInventory\Helper\Rewrite\Stock" />
+    <preference for="Magento\CatalogInventory\Model\Plugin\AfterProductLoad" type="Mexbs\MultiInventory\Model\Plugin\Rewrite\AfterProductLoad" />
+    <preference for="Magento\CatalogInventory\Model\ResourceModel\Indexer\Stock\DefaultStock" type="Mexbs\MultiInventory\Model\Rewrite\ResourceModel\Indexer\Stock\DefaultStock" />
+    <preference for="Magento\CatalogInventory\Model\ResourceModel\Stock\Status" type="Mexbs\MultiInventory\Model\Rewrite\ResourceModel\Stock\Status" />
+    <preference for="Magento\CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\Option" type="Mexbs\MultiInventory\Model\Rewrite\Quote\Item\QuantityValidator\Initializer\Option" />
+    <preference for="Magento\CatalogInventory\Observer\AddInventoryDataObserver" type="Mexbs\MultiInventory\Observer\Rewrite\AddInventoryDataObserver" />
+    <preference for="Magento\CatalogInventory\Model\StockRegistryProvider" type="Mexbs\MultiInventory\Model\Rewrite\StockRegistryProvider" />
+    <preference for="Magento\CatalogInventory\Observer\SaveInventoryDataObserver" type="Mexbs\MultiInventory\Observer\Rewrite\SaveInventoryDataObserver" />
+    <preference for="Magento\CatalogImportExport\Model\Export\Product" type="Mexbs\MultiInventory\Model\Rewrite\CatalogImportExport\Export\Product" />
+    <preference for="Magento\CatalogImportExport\Model\Import\Product" type="Mexbs\MultiInventory\Model\Rewrite\CatalogImportExport\Import\Product" />
+    <preference for="Magento\Catalog\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\Inventory" type="Mexbs\MultiInventory\Block\Rewrite\Adminhtml\Product\Edit\Action\Attribute\Tab\Inventory" />
+    <preference for="Magento\Catalog\Controller\Adminhtml\Product\Action\Attribute\Save" type="Mexbs\MultiInventory\Controller\Rewrite\Adminhtml\Product\Action\Attribute\Save" />
+    <preference for="Magento\Bundle\Model\Product\Type" type="Mexbs\MultiInventory\Model\Rewrite\Bundle\Product\Type" />
+    <preference for="Magento\Reports\Block\Adminhtml\Product\Lowstock\Grid" type="Mexbs\MultiInventory\Block\Rewrite\Reports\Adminhtml\Product\Lowstock\Grid" />
+    <preference for="Magento\CatalogInventory\Model\StockItemValidator" type="Mexbs\MultiInventory\Model\Rewrite\StockItemValidator" />
+    <preference for="Magento\CatalogInventory\Observer\AddStockItemsObserver" type="Mexbs\MultiInventory\Observer\Rewrite\AddStockItemsObserver" />
+    <preference for="Magento\CatalogInventory\Model\Indexer\Stock\CacheCleaner" type="Mexbs\MultiInventory\Model\Rewrite\IndexerStockCacheCleaner" />
+</config>

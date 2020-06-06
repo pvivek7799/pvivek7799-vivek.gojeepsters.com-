@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+
+/**
+ * Product additional attributes template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+?>
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+?>
+<div class="centercontent desc">
+    <h1>Details</h1>
+    <p style='font-family:"PT Serif",sans-serif;font-size:16px;font-style:italic;'><?php echo $_product->getDescription(); ?></p>
+</div>

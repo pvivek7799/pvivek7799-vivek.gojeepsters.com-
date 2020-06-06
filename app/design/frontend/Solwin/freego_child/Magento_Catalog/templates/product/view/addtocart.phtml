@@ -1,0 +1,92 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $custompricehelper = $this->helper('Magecomp\Customprice\Helper\Data'); ?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+    <div class="box-tocart">
+
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()): ?>
+                <div class="field qty">
+                    <label class="label" for="qty" style="
+                           float: left;
+                           line-height: 45px;
+                           font-size: 17px;
+                           padding: 0 10px;
+                           "><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
+                    <div class="control">
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                               title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                               class="input-text qty"
+                               data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                               />
+                    </div>
+                </div>
+                <?php $getprice = $custompricehelper->getCustomPrice($_product); ?>
+                <?php if ($getprice): ?>
+                    <div class="field">
+                        <label class="custom-price-label" for="custom-price-label"><span><?= /* @escapeNotVerified */ __($custompricehelper->Frontendlabel()) ?></span></label>
+                        <div class="custom-price-textbox-div">
+                            <input type="number"
+                                   name="cprice"
+                                   id="cprice"
+                                   value="1"
+                                   title="<?= /* @escapeNotVerified */ __('customprice') ?>"
+                                   class="custom-price-textbox" style="width:25% !important; text-align: center;"
+                                   min="1"/>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <button type="submit"
+                        title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button">
+                    <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+                </button>
+            <?php endif; ?>
+            <div class="actions" style="
+                 padding: 20px 0;
+                 ">
+
+                <button class="ad_wsh_lst"><?php echo $this->getLayout()->createBlock("Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist")->setTemplate("Magento_Wishlist::catalog/product/view/addto/wishlist.phtml")->toHtml(); ?></button>
+                <?php
+                $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                ?>
+                <button class="ad_wsh_lst" style="
+                        margin-left: 15px;
+                        "><a href="#"
+                     class="action tocompare"
+                     title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                     aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                     data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_product); ?>'
+                     role="button">
+                        <span style="
+                              font-size: 14px;
+                              text-transform: uppercase;
+                              font-weight: bold;
+                              line-height: 18px;
+                              "><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
+                    </a></button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+    "#product_addtocart_form": {
+    "Magento_Catalog/js/validate-product": {}
+    }
+    }
+</script>

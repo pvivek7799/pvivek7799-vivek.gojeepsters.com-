@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="page.main.title" destination="product.info.main" before="product.info.price"/>
+        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
+        <!--<move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>-->
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+        <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Description</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Additional Information</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.info.main">
+            <block class="Magento\Cms\Block\Block" name="Ca_warning">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">Ca_warning</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.short.desc" template="Magento_Catalog::product/view/shortdesc.phtml" after="product.info.price" />
+        </referenceBlock>
+    </body>
+</page>

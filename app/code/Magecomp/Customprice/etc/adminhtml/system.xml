@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magecomp" translate="label" sortOrder="100" class="magecomp-logo">
+            <label><![CDATA[]]></label>
+        </tab>
+        <section id="customprice" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Custom Price</label>
+            <tab>magecomp</tab>
+            <resource>Magecomp_Customprice::config_customprice</resource>
+            <group id="module_options" translate="label" sortOrder="10" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enable" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="list_mode" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Option</label>
+                    <source_model>Magecomp\Customprice\Model\Config\Source\Listmode</source_model>
+                    <depends><field id="*/*/enable">1</field></depends>
+                </field>
+                <field id="minimumprice" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Custom Price</label>
+                    <validate>required-entry not-negative-amount</validate>
+                    <depends><field id="*/*/list_mode">0</field></depends>
+                </field>
+                <field id="frontend_label" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frontend Label</label>
+                    <validate>required-entry</validate>
+                    <depends><field id="*/*/enable">1</field></depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

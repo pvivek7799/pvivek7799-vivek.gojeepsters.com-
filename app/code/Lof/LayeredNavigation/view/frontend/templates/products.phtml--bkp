@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © 2017 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+
+<?php
+$objectmanager = \Magento\Framework\App\ObjectManager::getInstance();
+$currentCategoryId = $objectmanager->create('Magento\Catalog\Model\Layer\Resolver')->get()->getCurrentCategory()->getId();
+//$finderavailable = $objectmanager->create('Amasty\Finder\Api\FinderRepositoryInterface')->getFindersCategory($currentCategoryId);
+if ((!$block->isContentMode() || $block->isMixedMode()) && ($this->getRequest()->getParam('find') != '' || $currentCategoryId == 5 || $currentCategoryId == 242 || $currentCategoryId == 59)):
+    ?>
+    <div id="layer-product-list">
+        <?php echo $block->getProductListHtml() ?>
+    </div>
+<?php else: ?>
+    <div id="layer-product-list">
+        <div class="message info empty"><div>Please select Make,Model,Sub Model And Year from above drop down's</div></div>
+    </div>
+<?php endif; ?>

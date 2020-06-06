@@ -1,0 +1,186 @@
+<!--
+  ~ Mage-World
+  ~
+  ~ @category    Mage-World
+  ~ @package     MW
+  ~ @author      Mage-world Developer
+  ~
+  ~ @copyright   Copyright (c) 2018 Mage-World (https://www.mage-world.com/)
+  -->
+<!-- ko foreach: getRegion('authentication') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('messages') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('osc-before') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<div class="mw-osc-threecolumns mw-osc-checkoutcontainer mw-osc-skin-generic" data-bind="css:{virtualCheckout:isVirtual()},afterRender:afterRender">
+    <form id="onestep_form">
+        <!--ko if:!isVirtual() -->
+        <div class="mw-osc-column mw-osc-column-left">
+            <div class="mw-osc-block">
+                <div class="mw-osc-block-title">
+                    <p class="onestepcheckout-numbers onestepcheckout-numbers-1" data-bind="i18n:'Shipping Address'"></p>
+                </div>
+
+                <div class="mw-osc-block-content">
+                    <!-- ko foreach: getRegion('steps') -->
+                    <!-- ko foreach: getRegion('shipping-step') -->
+                    <!-- ko foreach: getRegion('shipping-address') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!--/ko-->
+                    <!--/ko-->
+                    <!--/ko-->
+                </div>
+            </div>
+        </div>
+        <!--/ko-->
+        <div class="mw-osc-column-2">
+            <div id="mw-osc-column-container">
+                <!--ko if:!isVirtual() -->
+                <div class="mw-osc-column mw-osc-column-middle">
+                    <div class="mw-osc-block">
+                        <div class="mw-osc-block-title">
+                            <p class="onestepcheckout-numbers onestepcheckout-numbers-2"
+                               data-bind="i18n:'Shipping method'">
+                            </p>
+                        </div>
+                        <div id="co-shipping-method-form">
+                            <div class="mw-osc-block-content">
+                                <div id="checkout-shipping-method-load">
+                                    <!-- ko foreach: getRegion('steps') -->
+                                    <!-- ko foreach: getRegion('shipping-step') -->
+                                    <!-- ko foreach: getRegion('shipping-method') -->
+                                    <!-- ko template: getTemplate() --><!-- /ko -->
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </div>
+
+                                <!--ko ifnot: (window.checkoutConfig.deliveryDateModule && window.checkoutConfig.deliveryDateModule.enable == '1')-->
+                                <!-- ko foreach: getRegion('delivery-date') -->
+                                <!-- ko template: getTemplate() --><!-- /ko -->
+                                <!--/ko-->
+                                <!--/ko-->
+
+                                <!-- ko foreach: getRegion('mw-delivery-date') -->
+                                <div class="mw-delivery-date">
+                                    <!-- ko template: getTemplate() --><!-- /ko -->
+                                </div>
+                                <!--/ko-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ko-->
+
+                <div class="mw-osc-column mw-osc-column-right">
+                    <div class="mw-osc-block" id="opc-payment" class="section allow">
+                        <div class="mw-osc-block-title">
+                            <!--ko if:!isVirtual() -->
+                            <p id='mw-osc-p3' class="onestepcheckout-numbers onestepcheckout-numbers-3" data-bind="i18n:'Payment method'">
+                            </p>
+                            <!--/ko-->
+                            <!--ko if:isVirtual() -->
+                            <p id='mw-osc-p2' class="onestepcheckout-numbers onestepcheckout-numbers-2" data-bind="i18n:'Payment method'">
+                            </p>
+                            <!--/ko-->
+                        </div>
+
+                        <div class="mw-osc-block-content">
+                            <div id="checkout-step-payment" class="step a-item">
+                                <!-- ko foreach: getRegion('steps') -->
+                                <!-- ko foreach: getRegion('billing-step') -->
+                                <!-- ko foreach: getRegion('payment') -->
+                                <!-- ko template: getTemplate() --><!-- /ko -->
+                                <!--/ko-->
+                                <!--/ko-->
+                                <!--/ko-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear_both">&nbsp;</div>
+            </div>
+        </div>
+        <div class="review">
+            <div class="mw-osc-block">
+                <div class="mw-osc-block-title">
+                    <p class="onestepcheckout-numbers onestepcheckout-numbers-6" data-bind="i18n:'Review your order'"></p>
+                </div>
+                <div class="mw-osc-block-content mw-ost-review-ct">
+                    <div id="checkout-review-load">
+                        <table class="data-table" id="checkout-review-table">
+                            <colgroup>
+                                <col>
+                                <col width="1">
+                            </colgroup>
+                            <tbody>
+                            <!-- ko foreach: getRegion('sidebar') -->
+                            <!-- ko foreach: getRegion('summary') -->
+                            <!-- ko foreach: getRegion('item-review') -->
+                            <!-- ko template: getTemplate() --><!-- /ko -->
+                            <!--/ko-->
+                            <!--/ko-->
+                            <!--/ko-->
+                            </tbody>
+                            <tfoot>
+                            <!-- ko foreach: getRegion('sidebar') -->
+                            <!-- ko foreach: getRegion('summary') -->
+                            <!-- ko foreach: getRegion('totals') -->
+                            <!-- ko template: getTemplate() --><!-- /ko -->
+                            <!--/ko-->
+                            <!--/ko-->
+                            <!--/ko-->
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ko foreach: getRegion('discount') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+                <!-- ko foreach: getRegion('order-comment') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+                <!-- ko foreach: getRegion('gift-message') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+                <!-- ko foreach: getRegion('sign-up-newsletter') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+                <!-- ko foreach: getRegion('gift-wrap') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+                <!-- ko foreach: getRegion('survey') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+            </div>
+            <div id="checkout-review-submit">
+                <div class="buttons-set" id="review-buttons-container">
+                    <div class="os-clear"></div>
+                    <div class="clear"></div>
+                    <div id="onestepcheckout_place_order_button">
+                        <button type="button" class="button btn-checkout action primary" data-bind="attr:{title:$t('Place Order')},click:prepareToPlaceOrder,enable:enableCheckout">
+                            <span id="onestepcheckout_place_btn_id" data-bind="i18n:'Place Order'"></span>
+                        </button>
+                    </div>
+                    <!--ko if:placingOrder-->
+                    <span class="please-wait" id="review-please-wait">
+                        <p data-bind="i18n:'Please wait, processing your order...'"></p>
+                    </span>
+                    <!--/ko-->
+                    <div id="onestepcheckout-error-messages" class="show" data-bind="fadeVisible:errorMessage">
+                        <p data-bind="i18n:errorMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="clear_both">&nbsp;</div>

@@ -1,0 +1,19 @@
+{
+    "name": "mageworx/module-advancedproductoptions",
+    "version": "2.19.1",
+    "type": "metapackage",
+    "require": {
+        "mageworx/module-optionbase": "2.10.1",
+        "mageworx/module-optioninventory": "2.6.6", 
+        "mageworx/module-optiontemplates": "2.7.1",
+        "mageworx/module-optionfeatures": "2.10.1",  
+        "mageworx/module-optiondependency": "2.3.5",
+        "mageworx/module-optionswatches": "2.2.2",
+        "mageworx/module-optionlink": "2.0.11",
+        "mageworx/module-optionskupolicy": "2.1.9",
+        "mageworx/module-optionadvancedpricing": "2.0.6",
+        "mageworx/module-optionvisibility": "2.0.4",
+        "mageworx/module-optionimportexport": "2.0.5",
+        "mageworx/module-info": ">=1.0.0"
+    }
+}

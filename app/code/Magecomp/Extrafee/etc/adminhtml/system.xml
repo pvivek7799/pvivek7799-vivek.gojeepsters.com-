@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magecomp" translate="label" sortOrder="100" class="magecomp-logo">
+            <label><![CDATA[]]></label>
+        </tab>
+		<section id="Extrafee" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Extra Fee</label>
+            <tab>magecomp</tab>
+            <resource>Magecomp_Extrafee::config_extrafee</resource>
+			<group id="Extrafee" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="status" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extra Fee</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="name" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fee Name</label>
+                    <depends>
+                        <field id="Extrafee/Extrafee/status">1</field>
+                    </depends>
+                </field>
+                <field id="Extrafee_amount" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extra Fee Amount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+					 <comment><![CDATA[Applies as Fixed Amount]]></comment>
+                    <depends>
+                        <field id="Extrafee/Extrafee/status">1</field>
+                    </depends>
+                </field>
+                <field id="minimum_order_amount" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Order Amount To Display Extra Fee</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="Extrafee/Extrafee/status">1</field>
+                    </depends>
+                </field>
+            </group>
+		</section>
+	</system>
+</config>

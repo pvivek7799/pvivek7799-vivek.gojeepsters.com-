@@ -1,0 +1,21 @@
+{
+    "name": "landofcoder/magento2-advancedreport",
+    "description": "Extension Advanced Reports, Sales Reports",
+    "require": {
+        "php": "~7.0.0|~7.0.26|~7.1.21"
+    },
+    "type": "magento2-module",
+    "version": "1.0.1",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Lof\\AdvancedReports\\": ""
+        }
+    }
+}

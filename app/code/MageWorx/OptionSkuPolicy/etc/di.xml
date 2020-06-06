@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Data -->
+    <type name="MageWorx\OptionBase\Model\Product\Option\Attributes">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="sku_policy" xsi:type="object">MageWorx\OptionSkuPolicy\Model\Attribute\Option\SkuPolicy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\OptionBase\Model\Product\CollectionUpdaters">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="sku_policy" xsi:type="object">MageWorx\OptionSkuPolicy\Model\CollectionUpdater\Product\SkuPolicy</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- validate quote items after sku policy -->
+    <type name="MageWorx\OptionBase\Model\ValidationResolver">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="option_sku_policy" xsi:type="object">MageWorx\OptionSkuPolicy\Model\Validator</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- APO product attribute injection -->
+    <type name="MageWorx\OptionFeatures\Helper\Data">
+        <arguments>
+            <argument name="additionalProductAttributes" xsi:type="array">
+                <item name="sku_policy" xsi:type="const">MageWorx\OptionSkuPolicy\Helper\Data::KEY_SKU_POLICY</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Installation -->
+    <type name="MageWorx\OptionBase\Model\Installer">
+        <arguments>
+            <argument name="installSchema" xsi:type="array">
+                <item name="optionskupolicy_install_schema_data" xsi:type="object">MageWorx\OptionSkuPolicy\Model\InstallSchema</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Plugins -->
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <plugin name="mageworx-optionskupolicy-add-sku-policy-to-order"
+                type="MageWorx\OptionSkuPolicy\Plugin\AddSkuPolicyToOrder"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="mageworx-optionskupolicy-fix-magento-add-to-cart"
+                type="MageWorx\OptionSkuPolicy\Plugin\FixMagentoAddToCart"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+    <type name="Magento\Catalog\Model\CustomOptions\CustomOptionProcessor">
+        <plugin name="mageworx-optionskupolicy-skip-double-cart-item-processing"
+                type="MageWorx\OptionSkuPolicy\Plugin\SkipDoubleCartItemProcessing"
+                sortOrder="10"
+                disabled="false"
+        />
+    </type>
+</config>

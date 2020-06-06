@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <modal name="advanced_inventory_modal">
+        <fieldset name="stock_data">
+            <container name="container_manage_stock">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">!${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <field name="qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/qty-validator-changer</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                            <item name="handleChanges" xsi:type="string">${$.provider}:data.product.stock_data.is_qty_decimal</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <container name="container_min_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/group</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <fieldset name="container_min_sale_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">!${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </fieldset>
+            <container name="container_max_sale_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">!${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <field name="is_qty_decimal">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/select</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <field name="is_decimal_divided">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/select</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            <container name="container_backorders">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/group</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <container name="container_deferred_stock_update">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">!${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <container name="container_notify_stock_qty">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/group</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <container name="container_enable_qty_increments">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">!${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <container name="container_qty_increments">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-qty-increments/group</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsQtyIncrements" xsi:type="string">${$.provider}:data.product.stock_data.enable_qty_increments</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+            <container name="container_is_in_stock">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Mexbs_MultiInventory/js/components/visible-on-manage-stock/group</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="setIsManageStock" xsi:type="string">${$.provider}:data.product.stock_data.manage_stock</item>
+                            <item name="setUseDefaultValues" xsi:type="string">${$.provider}:data.product.stock_data.use_default_values</item>
+                        </item>
+                    </item>
+                </argument>
+            </container>
+        </fieldset>
+    </modal>
+</form>

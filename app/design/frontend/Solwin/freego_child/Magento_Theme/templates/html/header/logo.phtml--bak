@@ -1,0 +1,98 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+?>
+<?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();?>
+<span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @escapeNotVerified */ __('Toggle Nav') ?></span></span>
+<div class="col-md-3">
+	<a class="logo" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>">
+		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+			 title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+			 alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+			 <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+			 <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+		/>
+		<br />
+		<h2 class="logo_title">Gojeepsters.com</h2>
+	</a>
+</div>
+<div class="col-md-3">
+	<div class="head-cls custom">
+						<a href="https://gojeepsters.com/build-your-jeep">
+							<img src="https://gojeepsters.com/pub/media/wysiwyg/gojeep.jpg" />
+						</a>
+					</div>
+</div>
+<div class="col-md-3 col-last-child">
+			<div class="header-right-cntnt">
+					
+					<div class="head-cls-left" style="">
+						<span style="font-size: 12px; font-weight: 800;">Jeepsters Tampa Fl</span><br>
+						6102 E Adamo Dr<br>
+						<span style="font-size: 12px;">Tampa Fl 33619</span><br>
+						<span style="font-size: 12px;font-weight: 800;color: #fe9b4b;">+1 813 605-2244</span><br>
+						<a href="mailto:tampa@gojeepsters.com" style="color: #000;">tampa@gojeepsters.com</a>
+						<p><strong>Store Hours:</strong><br />
+							Monday - Friday 8:30am - 5pm,<br />
+							Saturday 10am - 2pm,<br />
+							Sunday closed.<br />
+							</p>
+					</div>
+					<div class="head-cls-right" style="">
+						<span style="font-size: 12px; font-weight: 800;">Jeepsters Largo Fl</span><br>
+						6875 Ulmerton Rd<br>
+						<span style="font-size: 12px;">Largo Fl 33771</span><br>
+						<span style="font-size: 12px;font-weight: 800;color: #fe9b4b;">+1 727 538-0086</span><br>
+						<a href="mailto:largo@gojeepsters.com" style="color: #000;">largo@gojeepsters.com</a>
+						<p><strong>Store Hours:</strong><br />
+							Monday - Friday 8:30am - 5pm,<br />
+							Saturday 10am - 2pm,<br />
+							Sunday closed.<br />
+							</p>
+					</div>
+					<!--<div class="head-cls-lef" style="">
+					
+					<p><strong>Store Hours:</strong><br />
+							Monday - Friday 8:30am - 5pm,<br />
+							Saturday 10am - 2pm,<br />
+							Sunday closed.<br />
+							</p>
+					</div>-->
+
+					
+			</div>
+</div>
+<style>
+	.page-header .header.content .col-md-3 {    width: 33%;float: left;}
+	.page-header .header.content .col-md-3 .head-cls-left,.head-cls-right{width: 50%;float: left;}
+	.head-cls.custom{width: 260px;    margin: 0px auto;}
+	
+	@media screen and (min-width: 320px) and (max-width: 639px) {
+		.page-header .header.content .col-md-3{    display: table;margin-top: 40px;}
+		.page-header .header.content .col-md-3.col-last-child{    width: 100%;}
+		.page-header .header.content .col-md-3 .head-cls-left,.page-header .header.content .col-md-3 .head-cls-right{width:50%;float:left;}
+	}
+	@media screen and (min-width: 640px) and (max-width: 750px) {
+		.page-header .header.content .col-md-3 {    width: 30%;    margin-bottom: 3em;}
+		.page-header .header.content .col-md-3.col-last-child{float: right;}
+		
+	}
+	@media screen and (min-width: 320px) and (max-width: 767px) {
+	.page-header .header.content .col-md-3 .head-cls-left,.page-header .header.content .col-md-3 .head-cls-right{     padding: 0px;  width: 50%;float:left;    margin-bottom: 10px;}
+	.page-header .header.content .col-md-3{width:100%;}
+	}
+	@media screen and (min-width: 768px) and (max-width: 840px) {
+	.head-cls.custom{    width: 230px;}
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px) {
+		.page-header .header.content .col-md-3 .head-cls-left,.page-header .header.content .col-md-3 .head-cls-right{    font-size: 11px;}
+	}
+</style>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <rootways_chase_option>
+                <active>1</active>
+                <title>Chase Payment By Rootways</title>
+                <model>Rootways\Chase\Model\Payment</model>
+                <gateway_url>https://orbital1.chasepaymentech.com/authorize</gateway_url>
+            </rootways_chase_option>
+        </payment>
+    </default>
+</config>

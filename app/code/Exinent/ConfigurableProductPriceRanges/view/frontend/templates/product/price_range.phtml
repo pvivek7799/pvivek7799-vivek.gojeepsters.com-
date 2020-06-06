@@ -1,0 +1,42 @@
+<?php
+$currentProduct = $this->getProduct();
+$regularPrice = $currentProduct->getPriceInfo()->getPrice('regular_price');
+?>
+<div class='price-box'>
+	<span class="price-container priceboxnew" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+
+    <span class="price">
+        <?php
+
+            echo '$'.$regularPrice->getMinRegularAmount().' - $'.$regularPrice->getMaxRegularAmount();
+        ?>
+    </span>
+</span>
+</div>
+<style type="text/css">
+	.product-info-price .price-box .price-container{display: none;}
+	.product-info-price .price-box .priceboxnew{display: block;}
+</style>
+<script>
+	require(['jquery'],function(jQuery){
+		jQuery(document).ready(function(){
+
+			jQuery('select').change(function(){
+				jQuery('.product-info-price .price-box .price-container').show();
+				jQuery('.product-info-price .price-box .priceboxnew').hide();
+					var min = '<?php echo $regularPrice->getMinRegularAmount()?>';
+
+					if(jQuery('select option:selected').text()=='Choose an Option...'){
+						
+						jQuery('.product-info-price .price-box .price-container').hide();
+						jQuery('.product-info-price .price-box .priceboxnew').show();
+					
+							console.log(min);
+						// jQuery(this).val(min);
+
+					}
+				// }
+			});
+		});
+	});
+	</script>

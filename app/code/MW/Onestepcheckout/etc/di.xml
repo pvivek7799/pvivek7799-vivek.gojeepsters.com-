@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  Copyright © 2016 MW. All rights reserved.
+  ~  See COPYING.txt for license details.
+  ~  */
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MW\Onestepcheckout\Api\CustomerServiceInterface" type="MW\Onestepcheckout\Model\CustomerService" />
+    <preference for="MW\Onestepcheckout\Api\ResultServiceInterface" type="MW\Onestepcheckout\Model\ResultService" />
+    <preference for="MW\Onestepcheckout\Model\Data\Customer\ResponseInterface" type="MW\Onestepcheckout\Model\Data\Customer\Response" />
+    <preference for="MW\Onestepcheckout\Model\Data\Customer\RegisterInterface" type="MW\Onestepcheckout\Model\Data\Customer\Register" />
+
+    <type name="Magento\Sales\Block\Order\Totals">
+        <plugin name="mw_sales_order_totals_plugin" type="MW\Onestepcheckout\Block\Sales\Order\Total\Giftwrap" sortOrder="10" disabled="false"  />
+    </type>
+
+    <virtualType name="OSCGiftWrapLine" type="MW\Onestepcheckout\Model\Klarna\Checkout\Orderline\Giftwrap">
+        <arguments>
+            <argument name="klarnaConfig" xsi:type="object">KpKlarnaConfig</argument>
+        </arguments>
+    </virtualType>
+</config>

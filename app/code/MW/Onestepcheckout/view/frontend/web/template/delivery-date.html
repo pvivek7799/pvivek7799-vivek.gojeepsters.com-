@@ -1,0 +1,53 @@
+<!--
+  ~ /**
+  ~  Copyright © 2016 MW. All rights reserved.
+  ~  See COPYING.txt for license details.
+  ~  */
+  -->
+
+<!-- ko if: isShowDelivery() -->
+<div id="delivery_date_load">
+    <ul>
+        <li class="delivery">
+            <div class="delivery_time_date">
+                <label for="delivery_date" data-bind="i18n: 'Date to delivery:'"></label>
+                <p class="datetime-delivery">
+                    <input readonly="readonly" id="delivery_date" class="osc-additional-data"
+                           type="text" size="17" name="delivery[onestepcheckout-date]"
+                           data-bind="value: currentDate(),afterRender: initDate(),event: {change: setTime}"/>
+                </p>
+            </div>
+            <!-- ko if: listTime().length -->
+            <div class="delivery_time_date select-time">
+                <label for="delivery_time" data-bind="i18n: 'Time to delivery:'"></label>
+                <p class="datetime-delivery">
+                    <select id="delivery_time" style="width: 100px"
+                            data-bind="options: listTime(),
+                        optionsText: function(item) {
+                            return item
+                        },
+                        optionsValue: function(item) {
+                            return item
+                        },
+                        optionsCaption: $t('Choose...')">
+                    </select>
+                </p>
+
+            </div>
+            <!-- /ko -->
+        </li>
+        <!-- ko if: isShowSecurityCode() -->
+        <li class="sercurity-box">
+            <div class="input-box">
+                <label for="security_code"
+                       data-bind="i18n: 'Security access code (Buildings/gated communities)'"></label>
+                <p class="security-code-delivery">
+                    <input id="security_code" class="osc-additional-data input-text"
+                           type="text" size="25" name="security_code" required/>
+                </p>
+            </div>
+        </li>
+        <!-- /ko -->
+    </ul>
+</div>
+<!-- /ko -->

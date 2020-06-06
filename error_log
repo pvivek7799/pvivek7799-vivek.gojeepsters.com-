@@ -1,0 +1,71 @@
+[17-Jul-2019 13:40:58 UTC] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/jeepster/public_html/app/code/TemplateMonster/ThemeOptions/lib/mobiledetect/tests/VendorsTest_tmp.php on line 6
+[17-Jul-2019 13:41:28 UTC] PHP Fatal error:  Uncaught Error: Class 'Magento\Framework\App\ErrorHandler' not found in /home/jeepster/public_html/bin/magento:20
+Stack trace:
+#0 {main}
+  thrown in /home/jeepster/public_html/bin/magento on line 20
+[17-Jul-2019 13:41:41 UTC] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/jeepster/public_html/app/code/TemplateMonster/ThemeOptions/lib/mobiledetect/tests/VendorsTest_tmp.php on line 6
+[17-Jul-2019 13:42:42 UTC] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/jeepster/public_html/app/code/TemplateMonster/ThemeOptions/lib/mobiledetect/tests/VendorsTest_tmp.php on line 6
+[17-Jul-2019 20:46:34 UTC] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/jeepster/public_html/app/code/TemplateMonster/ThemeOptions/lib/mobiledetect/tests/VendorsTest_tmp.php on line 6
+[17-Jul-2019 21:17:14 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[17-Jul-2019 21:22:56 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[17-Jul-2019 21:27:26 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[17-Jul-2019 21:48:38 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[18-Jul-2019 22:40:26 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[18-Jul-2019 22:43:49 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[17-Oct-2019 17:46:05 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[17-Oct-2019 17:49:34 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116
+[17-Oct-2019 17:52:21 UTC] PHP Fatal error:  Uncaught Error: Cannot instantiate interface Symfony\Component\Console\Output\OutputInterface in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php:116
+Stack trace:
+#0 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/Compiled.php(108): Magento\Framework\ObjectManager\Factory\AbstractFactory->createObject('Symfony\\Compone...', Array)
+#1 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/ObjectManager.php(70): Magento\Framework\ObjectManager\Factory\Compiled->create('Symfony\\Compone...')
+#2 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(160): Magento\Framework\ObjectManager\ObjectManager->get('Symfony\\Compone...')
+#3 /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(246): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Symfony\\Compone...', NULL, 'output', 'Magento\\Setup\\M...')
+#4 /home/jeepster/public_ in /home/jeepster/public_html/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php on line 116

@@ -1,0 +1,27 @@
+One Step Checkout Magento 2 - CHANGELOGS
+
+v2.0.3 (November 14, 2018)
+Fix bug
++ Billing Address not show in checkout page
+
+v2.0.1 (August 22, 2018)
+Update payments
++ Stripe
++ Amazon Pay
++ Braintree
++ Klarna
++ Paymentsense
++ Knet
+
+v2.0.0 (August 16, 2018)
+Rebuild Magento 2 One Step Checkout extension
++ Redesign template
++ Allow to hide header and footer in checkout page
++ Allow to insert a static block to header or footer
++ Allow to sort order shipping address fields
+
+v1.0.1 (Feb 21, 2018)
+Fix small bugs and integrate with reward porint pro magento 2
+
+v1.0.0 (Dec 01, 2017)
+Extension Release

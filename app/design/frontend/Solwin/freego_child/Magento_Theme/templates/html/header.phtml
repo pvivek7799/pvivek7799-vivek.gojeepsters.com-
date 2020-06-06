@@ -1,0 +1,69 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+$welcomeMessage = $block->getWelcome();
+?>
+<?php switch ($block->getShowPart()):
+    case 'welcome': ?>
+        <li class="greet welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span class="not-logged-in" data-bind='html:"<?= $block->escapeHtml($welcomeMessage) ?>"'></span>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <span class="not-logged-in" data-bind='html:"<?= $block->escapeHtml($welcomeMessage) ?>"'></span>
+            <?= $block->getBlockHtml('header.additional') ?>
+            <!-- /ko -->
+        </li>
+        <?php echo $this->getLayout()->createBlock("Magento\Customer\Block\Account\AuthorizationLink")->setTemplate("Magento_Customer::account/link/authorization.phtml")->toHtml(); ?>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157843224-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-157843224-1');
+</script>
+
+<!-- <meta name="google-site-verification" content="hWHS1SXzdGb05HucbMhR1HSLSOGt86UE57ghgyAhkAc" /> -->
+
+
+
+
+    <?php break; ?>
+
+    <?php case 'other': ?>
+        <?= $block->getChildHtml() ?>
+        <?php echo $this->getLayout()->createBlock("Magento\Customer\Block\Account\AuthorizationLink")->setTemplate("Magento_Customer::account/link/authorization.phtml")->toHtml(); ?>
+    <?php break; ?>
+
+<?php endswitch; ?>
+<!--<script type="text/javascript" src="//www.interactivegarage.com/scripts/iframeResizer.min.js"></script>-->
+
+<!--<script type="text/javascript">
+
+	iFrameResize({log:false, checkOrigin:false});
+
+</script>-->

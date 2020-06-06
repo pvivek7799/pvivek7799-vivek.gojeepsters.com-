@@ -1,0 +1,69 @@
+<?php
+/**
+ * Landofcoder
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Landofcoder EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.landofcoder.com/LICENSE-1.0.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.landofcoder.com/ for more information
+ *
+ * @category   Lof
+ * @package    Lof_FollowUpEmail
+ * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+
+/**
+ * Form Builder extension
+ *
+ * @category   Lof
+ * @package    Lof_FollowUpEmail
+ * @author     Landofcoder Dev Team <landofcoder@gmail.com>
+ */
+
+ 
+?>
+<div class="landofcoder-fue-menu">
+    <div class="actions dropdown closable">
+    <span class="store-switcher-label"><?php echo __('Menu :');?></span>
+        <button type="button" class="admin__action-dropdown" data-mage-init='{"dropdown":{}}' data-toggle="dropdown" aria-haspopup="true"> 
+            <span class="admin__action-dropdown-text"><?php echo $block->getCurrentItem()['title'] ?></span>
+        </button>
+        <ul class="dropdown-menu">
+            <?php foreach ($block->getMenuItems() as $index => $item): ?>
+                <li class="<?php if ($block->isCurrent($index)): ?>current<?php endif; ?> <?php if (isset($item['separator'])): ?>separator<?php endif; ?>" >
+                    <a <?php if(isset($item['item'])){ echo 'class="lof-dropdown"'; } ?>  href="<?php echo $item['url'] ?>" <?php echo $block->renderAttributes($item) ?>><?php echo $item['title'] ?><?php if(isset($item['item'])){ echo '<span class="opener" ></span>'; } ?></a>
+                    <?php if(isset($item['item'])) { ?>
+                        <ul class="dropdown-submenu">
+                             <?php foreach ($item['item'] as $index => $item): ?>
+                            <li class="<?php if ($block->isCurrent($index)): ?>current<?php endif; ?> <?php if (isset($item['separator'])): ?>separator<?php endif; ?>">
+                                <a href="<?php echo $item['url'] ?>" <?php echo $block->renderAttributes($item) ?>><?php echo $item['title'] ?></a> 
+                            </li> 
+                             <?php endforeach; ?>  
+                        </ul>
+                    <?php } ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+require(['jquery'],function($){
+    //Toggle mobile menu
+    $('.landofcoder-fue-menu .lof-dropdown').on('click', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('item-active');
+        var parent = $(this).parent().eq(0);
+        $(parent).find(".dropdown-submenu").eq(0).slideToggle();
+        return false;
+    });
+});
+</script>

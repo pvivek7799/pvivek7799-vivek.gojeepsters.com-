@@ -1,0 +1,31 @@
+{
+    "name": "rootways/chase",
+    "description": "Rootways Chase payment module for Magento 2",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0",
+        "magento/module-store": "*",
+        "magento/module-backend": "*",
+        "magento/framework": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.1",
+    "license": [
+        "OSL-3.0"
+    ],
+    "authors": [
+        {
+          "name": "Rootways Developer",
+          "email": "help@rootways.com",
+          "homepage": "https://www.rootways.com/shop/",
+          "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Rootways\\Chase\\": ""
+        }
+    }
+}

@@ -1,0 +1,231 @@
+<?php
+$_dataHelper = $this->helper('MW\Onestepcheckout\Helper\Data');
+$styleConfig = 3;
+$giftMessageImageUrl = $block->getViewFileUrl('MW_Onestepcheckout::css/images/bkg-giftmessage.png');
+
+// Color
+$styleColorConfig = $block->getStyleColor();
+if ($styleColorConfig == '') {
+    $color = '#337BAA';
+} else {
+    $color = '#' . $styleColorConfig;
+}
+
+$color_0_1 = $_dataHelper->colorBrightness($color, 0.1);
+$color_0_5 = $_dataHelper->colorBrightness($color, 0.5);
+$color_0_7 = $_dataHelper->colorBrightness($color, 0.7);
+$color_0_9 = $_dataHelper->colorBrightness($color, 0.9);
+
+// Checkout button color
+$checkoutColor = $block->getButtonColor();
+if ($checkoutColor == '') {
+    $checkoutColor = '#EA7608';
+} else {
+    $checkoutColor = '#' . $checkoutColor;
+}
+if($styleConfig == 3) {
+    $checkoutColor_0_7 = $_dataHelper->colorBrightness($checkoutColor, 0.7);
+    $checkoutColor_0_9 = $_dataHelper->colorBrightness($checkoutColor, 0.9);
+} else {
+    $checkoutColor_0_7 = $checkoutColor;
+    $checkoutColor_0_9 = $checkoutColor;
+}
+
+// Gift box color
+if($styleConfig == 3) {
+    $colorGift_0_7 = $color_0_7;
+    $colorGift_0_9 = $color_0_9;
+} else {
+    $colorGift_0_7 = $color;
+    $colorGift_0_9 = $color;
+}
+
+// Box width
+$boxWidth = "420px";
+
+// Page layout
+//if ($_dataHelper->getStoreConfig('onestepcheckout/display_setting/page_layout') == 2) {
+//    $columnMiddlePageLayout = 'width: 100% !important;';
+//    $columnRightPageLayout = 'float: none !important; clear: both !important; width: 100% !important;';
+//} else {
+    $columnMiddlePageLayout = '';
+    $columnRightPageLayout = '';
+//}
+
+// Temp background
+if ($styleConfig == 2) {
+    $tempBackground = 'none !important';
+} else {
+    $tempBackground = '';
+}
+
+// Height bar
+$heightBar = 2;
+switch($heightBar) {
+    case 1: {
+        $heightBarValue = '30px';
+        $backgroundPositionValue = '10px 5px';
+        $fontSiteValue = '14px';
+        $checkoutHeightValue = '40px !important';
+        $checkoutLineheightValue = '40px !important';
+        $checkoutFontValue = '24px !important';
+        break;
+    }
+    case 2: {
+        $heightBarValue = '40px';
+        $backgroundPositionValue = '10px 8px';
+        $fontSiteValue = '16px';
+        $checkoutHeightValue = '47px !important';
+        $checkoutLineheightValue = '47px !important';
+        $checkoutFontValue = '26px !important';
+        break;
+    }
+    case 3: {
+        $heightBarValue = '43px';
+        $backgroundPositionValue = '10px 11px';
+        $fontSiteValue = '17px';
+        $checkoutHeightValue = '50px !important';
+        $checkoutLineheightValue = '50px !important';
+        $checkoutFontValue = '27px !important';
+        break;
+    }
+    case 4: {
+        $heightBarValue = '46px';
+        $backgroundPositionValue = '10px 13px';
+        $fontSiteValue = '18px';
+        $checkoutHeightValue = '53px !important';
+        $checkoutLineheightValue = '53px !important';
+        $checkoutFontValue = '28px !important';
+        break;
+    }
+    default: {
+        $heightBarValue = '40px';
+        $backgroundPositionValue = '10px 8px';
+        $fontSiteValue = '16px';
+        $checkoutHeightValue = '47px !important';
+        $checkoutLineheightValue = '47px !important';
+        $checkoutFontValue = '26px !important';
+    }
+}
+?>
+
+<style type="text/css">
+
+    div.mw-osc-block-title .onestepcheckout-numbers,
+    .mw-osc-title-login,
+    div.discount-form button,
+    button.btn-update-cart {
+        background-color: <?php echo $color ?> !important;
+        background-image: linear-gradient(to bottom, <?php echo $color_0_9 ?>, <?php echo $color_0_7 ?>) !important;
+        background-image: -webkit-linear-gradient(to bottom, <?php echo $color_0_9 ?>, <?php echo $color_0_7 ?>) !important;
+        background-image: -moz-linear-gradient(to bottom, <?php echo $color_0_9 ?>, <?php echo $color_0_7 ?>) !important;
+        background-image: -ms-linear-gradient(to bottom, <?php echo $color_0_9 ?>, <?php echo $color_0_7 ?>) !important;
+        background-image: -o-linear-gradient(to bottom, <?php echo $color_0_9 ?>, <?php echo $color_0_7 ?>) !important;
+        background-image: <?php echo $tempBackground ?>;
+    }
+    #onestepcheckout_place_order_button .button {
+        background-image: linear-gradient(to bottom, <?php echo $checkoutColor_0_9 ?>, <?php echo $checkoutColor_0_7 ?>);
+        background-image: -webkit-linear-gradient(to bottom, <?php echo $checkoutColor_0_9 ?>, <?php echo $checkoutColor_0_7 ?>);
+        background-image: -moz-linear-gradient(to bottom, <?php echo $checkoutColor_0_9 ?>, <?php echo $checkoutColor_0_7 ?>);
+        background-image: -ms-linear-gradient(to bottom, <?php echo $checkoutColor_0_9 ?>, <?php echo $checkoutColor_0_7 ?>);
+        background-image: -o-linear-gradient(to bottom, <?php echo $checkoutColor_0_9 ?>, <?php echo $checkoutColor_0_7 ?>);
+        background-image: <?php echo $tempBackground ?>;
+        border: none;
+    }
+    .mw-osc-giftmessagecontainer .gift-messages h3 {
+        background: url("<?php echo $giftMessageImageUrl ?>") 10px 10px no-repeat, linear-gradient(to bottom, <?php echo $colorGift_0_9 ?>, <?php echo $colorGift_0_7 ?>);
+        background: url("<?php echo $giftMessageImageUrl ?>") 10px 10px no-repeat, -webkit-linear-gradient(to bottom, <?php echo $colorGift_0_9 ?>, <?php echo $colorGift_0_7 ?>);
+        background: url("<?php echo $giftMessageImageUrl ?>") 10px 10px no-repeat, -moz-linear-gradient(to bottom, <?php echo $colorGift_0_9 ?>, <?php echo $colorGift_0_7 ?>);
+        background: url("<?php echo $giftMessageImageUrl ?>") 10px 10px no-repeat, -ms-linear-gradient(to bottom, <?php echo $colorGift_0_9 ?>, <?php echo $colorGift_0_7 ?>);
+        background: url("<?php echo $giftMessageImageUrl ?>") 10px 10px no-repeat, -o-linear-gradient(to bottom, <?php echo $colorGift_0_9 ?>, <?php echo $colorGift_0_7 ?>);
+        border: none;
+    }
+    div#fancybox-wrap #form-validate .fieldset .form-list li .input-box input#email_address:hover,
+    div#fancybox-wrap .col2-set .col-2 #mw-login-form fieldset .fieldset .form-list li #mw-login-password:hover,
+    div#fancybox-wrap .col2-set .col-2 #mw-login-form fieldset .fieldset .form-list li #mw-login-email:hover,
+    .mw-osc-block input.input-text:hover,
+    .mw-osc-block select:hover,
+    .mw-osc-block textarea:hover {
+        border-color: <?php echo $color_0_7 ?>;
+        box-shadow: 0 0 3px 0 <?php echo $color_0_5 ?>;
+    }
+    div#fancybox-wrap #form-validate .fieldset .form-list li .input-box input#email_address:focus,
+    div#fancybox-wrap .col2-set .col-2 #mw-login-form fieldset .fieldset .form-list li #mw-login-password:focus,
+    div#fancybox-wrap .col2-set .col-2 #mw-login-form fieldset .fieldset .form-list li #mw-login-email:focus,
+    .mw-osc-block input.input-text:focus,
+    .mw-osc-block select:focus,
+    .mw-osc-block textarea:focus {
+        background-color: <?php echo $color_0_1 ?>;
+        box-shadow: 0 0 3px 0 <?php echo $color_0_5 ?>;
+        border-color: <?php echo $color_0_7 ?>;
+    }
+    .mw-osc-threecolumns button.button span {
+        border: 1px solid <?php echo $color ?>;
+    }
+    .mw-osc-threecolumns #checkout-review-table-wrapper button.button span{
+        background: <?php echo $color ?>;
+    }
+    .cart .discount h2{
+        color: <?php echo $color ?>;
+    }
+    div#fancybox-wrap .col2-set .col-2 #mw-login-form fieldset .col-2 .buttons-set button span,
+    div#fancybox-wrap .col2-set .col-2 #login-form fieldset .col-2 .buttons-set button span,
+    div#fancybox-wrap #form-validate div.buttons-set #btforgotpass span{
+        background: <?php echo $color ?>;
+        border: 1px solid <?php echo $color ?>;
+        width: 80px;
+    }
+    .mw-osc-fancybox-wrap button.button span{
+        background: <?php echo $color ?>;
+        border: 1px solid <?php echo $color ?>;
+    }
+    .mw-osc-giftmessagecontainer h3{
+        background-color: <?php echo $color ?>;
+    }
+    .mw-osc-giftmessagecontainer .gift-messages-form h4{
+        color: <?php echo $color ?>;
+    }
+    div.mw-osc-column-middle{
+    <?php echo $columnMiddlePageLayout ?>
+    }
+    div.mw-osc-column-right{
+    <?php echo $columnRightPageLayout ?>
+    }
+    .mw-osc-threecolumns button.button span {
+        background: transparent;
+    }
+    .mw-osc-threecolumns button.btn-checkout span{
+        background: <?php echo $checkoutColor ?>;
+    }
+    p.onestepcheckout-numbers,.mw-osc-giftmessagecontainer h3 {
+        height: <?php echo $heightBarValue ?>;
+        line-height: <?php echo $heightBarValue ?>;
+        background-position: <?php echo $backgroundPositionValue ?>;
+        font-size : <?php echo $fontSiteValue ?>;
+        padding-top : 0px;
+    }
+    @media screen and (max-width: <?php echo $boxWidth ?>){
+        #inline2{width: 300px !important;}
+    }
+    @media screen and (max-width: 320px){
+        #inline2{width: 100% !important;}
+    }
+    @media screen and (max-width: 767px){
+        .customer-name, .customer-welcome{
+            display: block;
+        }
+    }
+    #onestepcheckout_place_order_button .button {
+        height: <?php echo $checkoutHeightValue ?>;
+        line-height: <?php echo $checkoutLineheightValue ?>;
+        font-size: <?php echo $checkoutFontValue ?>;
+        padding: 0;
+    }
+
+</style>
+<script>
+    if(typeof onestepConfig == "undefined"){
+        var onestepConfig = {};
+    }
+    onestepConfig.styleColor = "<?php echo $color;?>";
+</script>

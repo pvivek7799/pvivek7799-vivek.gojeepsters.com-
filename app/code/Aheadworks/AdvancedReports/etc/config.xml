@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2019 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <aw_advancedreports>
+            <general>
+                <order_status>complete</order_status>
+                <manufacturer_attribute>manufacturer</manufacturer_attribute>
+            </general>
+        </aw_advancedreports>
+        <dev>
+            <js>
+                <minify_exclude>https://www.gstatic.com/charts/loader.js</minify_exclude>
+            </js>
+        </dev>
+    </default>
+</config>

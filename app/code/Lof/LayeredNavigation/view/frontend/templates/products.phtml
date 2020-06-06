@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © 2017 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php
+$objectmanager = \Magento\Framework\App\ObjectManager::getInstance();
+$currentCategoryId = $objectmanager->create('Magento\Catalog\Model\Layer\Resolver')->get()->getCurrentCategory()->getId();
+$categoryData = $objectmanager->get('\Magento\Catalog\Model\CategoryFactory')->create()->load($currentCategoryId);
+    $getContent = $categoryData->getData('has_category_finder'); //is_home_page = your attribute code
+if($getContent === '0'){	
+
+}else {
+//$finderavailable = $objectmanager->create('Amasty\Finder\Api\FinderRepositoryInterface')->getFindersCategory($currentCategoryId);
+if ((!$block->isContentMode() || $block->isMixedMode()) && ($this->getRequest()->getParam('find') != '')):
+    ?>
+    <div id="layer-product-list">
+        <?php echo $block->getProductListHtml() ?>
+    </div>
+<?php else: ?>
+    <div id="layer-product-list">
+        <div class="message info empty"><div>Please select Make,Model,Sub Model And Year from above drop down's</div></div>
+    </div>
+<?php endif; ?>
+<?php }?>

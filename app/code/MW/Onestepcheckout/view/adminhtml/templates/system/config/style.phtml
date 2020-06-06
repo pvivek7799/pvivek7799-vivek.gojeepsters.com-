@@ -1,0 +1,157 @@
+<?php
+
+/**
+ * *
+ *  Copyright © 2016 MW. All rights reserved.
+ *  See COPYING.txt for license details.
+ *
+ */
+
+// @codingStandardsIgnoreFile
+
+$scopeId = $block->getScopeId();
+$scope = $block->getScope();
+$defaultLabel = __('Use Default');
+$defaultTitle = __('-- Please Select --');
+$scopeLabel = __('STORE VIEW');
+?>
+
+<?php $path = "mw_onestepcheckout/style_management/heading_text_color";?>
+<?php $data = $block->getFieldEnableBackEnd($path, $scope, $scopeId); ?>
+<?php $active = ($scope == 'default' || !empty($data)); ?>
+<?php $style = $block->getDefaultField($path, $scope, $scopeId);?>
+<?php
+$customPath = 'mw_onestepcheckout/style_management/heading_text_color_style';
+$custom = $this->getDefaultField($customPath, $scope, $scopeId);
+if (!$custom) {
+    $custom = $style;
+}
+?>
+<div class="color-title"><?php echo  $block->escapeHtml(__('Heading Text Color'));?></div>
+<div id="style-heading-text-color">
+    <label for="onestepcheckout_style_management_heading_text_color_style"></label>
+    <input value="<?php echo $block->escapeHtml($custom);?>"
+           style="background-color: <?php echo $block->escapeHtml($custom)?>"
+           name=groups[style_management][fields][heading_text_color_style][value]
+           class="jscolor custom-color"
+           id="onestepcheckout_style_management_heading_text_color_style" />
+</div>
+
+<?php $path = "mw_onestepcheckout/style_management/step_number_icon_color";?>
+<?php $data = $block->getFieldEnableBackEnd($path, $scope, $scopeId); ?>
+<?php $active = ($scope == 'default' || !empty($data)); ?>
+<?php $style = $block->getDefaultField($path, $scope, $scopeId);?>
+<?php
+$customPath = 'mw_onestepcheckout/style_management/step_number_icon_color_style';
+$custom = $this->getDefaultField($customPath, $scope, $scopeId);
+if (!$custom) {
+    $custom = $style;
+}
+?>
+<div class="color-title"><?php echo  $block->escapeHtml(__('Step Number Icon Color'));?></div>
+<div id="style-step-number-icon-color">
+    <label for="onestepcheckout_style_management_step_number_icon_color_style"></label>
+    <input value="<?php echo $block->escapeHtml($custom);?>"
+           style="background-color: <?php echo $block->escapeHtml($custom)?>"
+           name=groups[style_management][fields][step_number_icon_color_style][value]
+           class="jscolor custom-color"
+           id="onestepcheckout_style_management_step_number_icon_color_style" />
+</div>
+
+
+<?php $path = "mw_onestepcheckout/style_management/summary_color";?>
+<?php $data = $block->getFieldEnableBackEnd($path, $scope, $scopeId); ?>
+<?php $active = ($scope == 'default' || !empty($data)); ?>
+<?php $style = $block->getDefaultField($path, $scope, $scopeId);?>
+<?php
+$customPath = 'mw_onestepcheckout/style_management/summary_color_style';
+$custom = $this->getDefaultField($customPath, $scope, $scopeId);
+if (!$custom) {
+    $custom = $style;
+}
+?>
+<div class="color-title"><?php echo  $block->escapeHtml(__('Order Summary Background'));?></div>
+<div id="style-order-summary-background-color">
+    <label for="onestepcheckout_style_management_summary_color_style"></label>
+    <input value="<?php echo $block->escapeHtml($custom);?>"
+           style="background-color: <?php echo $block->escapeHtml($custom)?>"
+           name=groups[style_management][fields][summary_color_style][value]
+           class="jscolor custom-color"
+           id="onestepcheckout_style_management_summary_color_style" />
+</div>
+
+
+
+<?php $path = "mw_onestepcheckout/style_management/button";?>
+<?php $data = $block->getFieldEnableBackEnd($path, $scope, $scopeId); ?>
+<?php $active = ($scope == 'default' || !empty($data)); ?>
+<?php $buttonStyle = $block->getDefaultField($path, $scope, $scopeId);?>
+<?php
+$customButtonPath = 'mw_onestepcheckout/style_management/custom_button';
+$customButton =  $block->getDefaultField($customButtonPath, $scope, $scopeId);
+if (!$customButton) {
+    $customButton = $buttonStyle;
+}
+?>
+<div class="color-title"><?php echo  $block->escapeHtml(__('"Place Order" Button Text Color'));?></div>
+<div id="edit-button-color">
+    <label for="<?php echo $block->escapeHtml($block->getElementHtmlId('custom_button')) ?>"></label>
+    <input value="<?php echo $block->escapeHtml($customButton);?>"
+           style="background-color: <?php echo $block->escapeHtml($customButton)?>"
+           id="<?php echo $block->escapeHtml($block->getElementHtmlId('custom_button')) ?>"
+           name="<?php echo $block->escapeHtml($block->getElementHtmlName('custom_button')) ?>"
+           class="jscolor custom-color"/>
+</div>
+
+<?php $path = "mw_onestepcheckout/style_management/checkout_background_color";?>
+<?php $data = $block->getFieldEnableBackEnd($path, $scope, $scopeId); ?>
+<?php $active = ($scope == 'default' || !empty($data)); ?>
+<?php $style = $block->getDefaultField($path, $scope, $scopeId);?>
+<?php
+$customPath = 'mw_onestepcheckout/style_management/checkout_background_color_style';
+$custom = $this->getDefaultField($customPath, $scope, $scopeId);
+if (!$custom) {
+    $custom = $style;
+}
+?>
+<div class="color-title"><?php echo  $block->escapeHtml(__('"Place Order" Button Background Color'));?></div>
+<div id="checkout-background-color">
+    <label for="onestepcheckout_style_management_checkout_background_color_style"></label>
+    <input value="<?php echo $block->escapeHtml($custom);?>"
+           style="background-color: <?php echo $block->escapeHtml($custom)?>"
+           name=groups[style_management][fields][checkout_background_color_style][value]
+           class="jscolor custom-color"
+           id="onestepcheckout_style_management_checkout_background_color_style" />
+</div>
+<style type="text/css">
+    .custom-color {
+        margin-left: 30px;
+        margin-top:10px;
+    }
+    .color-title {
+        margin-top: 10px;
+        font-weight: bold;
+        padding-left: 30px;
+    }
+    #onestepcheckout_style_management_heading_text_color_style,#onestepcheckout_style_management_step_number_icon_color_style, #onestepcheckout_style_management_summary_color_style,#onestepcheckout_style_management_checkout_background_color_style {
+        width: 280px;
+        margin-left:60px;
+    }
+    #onestepcheckout_style_management_custom_button {
+        width: 280px;
+        margin-left:60px;
+    }
+    .hide{
+        display:none !important;
+    }
+</style>
+<script type="text/javascript">
+    require(["MW_Onestepcheckout/js/jscolor.min"],function($){});
+    require(["jquery"],function($){
+        $("#checkout-background-color").show();
+        $("#style-heading-text-color").show();
+        $("#style-order-summary-background-color").show();
+        $("#style-step-number-icon-color").show();
+        $("#edit-button-color").show();
+    });
+</script>

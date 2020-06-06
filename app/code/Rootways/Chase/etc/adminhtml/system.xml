@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+        <tab id="rootways_extensions" translate="label" sortOrder="51" class="rootways-configtab">
+            <label>Rootways Extensions</label>
+        </tab>
+		<section id="rootways_chase" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Chase Payment</label>
+			<tab>rootways_extensions</tab>
+			<resource>Rootways_Chase::config_chase</resource>
+			<group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Settings</label>
+                
+                <field id="card_settings_heading" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Status:</label>
+                    <frontend_model>Rootways\Chase\Block\System\Config\Heading</frontend_model>
+                </field>
+                
+                <field id="licencekey" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>License Key</label>
+                    <comment>Please enter license key for this extension that was emailed by us to you after your purchase.</comment>
+                </field>
+			</group>
+		</section>
+        
+		<section id="payment">                                   
+			<group id="rootways_chase_option" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Chase Payment Method - By Rootways Inc.</label>
+                <field id="card_settings_heading" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Status:</label>
+                    <frontend_model>Rootways\Chase\Block\System\Config\Heading</frontend_model>
+                </field>
+                
+				<field id="active" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+					<label>Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+                
+				<field id="title" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Title</label>
+				</field>
+                
+                <field id="account_mode" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Payment Mode</label>
+					<source_model>Rootways\Chase\Model\Source\PaymentMode</source_model>
+				</field>
+                
+                <field id="username" translate="label" type="obscure" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Username</label>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+				</field>
+                
+                <field id="password" translate="label" type="obscure" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Password</label>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+				</field>
+                
+                <field id="merchant_id" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Merchant ID</label>
+				</field>
+                
+                <field id="terminal_id" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Terminal ID</label>
+				</field>
+                
+                <field id="bin" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Bin</label>
+				</field>
+                
+                <field id="gateway_url" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Gateway URL</label>
+                     <comment>
+                    <![CDATA[https://orbital1.chasepaymentech.com/authorize]]>
+                    </comment>
+				</field>
+                
+                <field id="general_settings_heading" translate="label comment" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>General Settings</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                
+                <field id="cctypes" translate="label" type="multiselect" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Credit Card Types</label>
+					<source_model>Rootways\Chase\Model\Source\CcType</source_model>
+                    <comment>Select credit card type which allows for capturing payment at the checkout page.</comment>
+				</field>
+                
+				<field id="payment_action" translate="label" type="select" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Payment Action</label>
+					<source_model>Rootways\Chase\Model\Source\PaymentAction</source_model>
+                    <comment>
+                    <![CDATA[<strong>Authorize:</strong> Payment authorizes only at the time of order generating and payment is captured while generating an invoice from admin order.<br/><strong>Authorize and Capture:</strong> Payment will be authorized as well captured at the time when the order is generated.]]>
+                    </comment>
+				</field>
+                
+                <field id="order_status" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>New Order Status</label>
+					<source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+				</field>
+                
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Payment from Applicable Countries</label>
+					<source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+				</field>
+                
+				<field id="specificcountry" translate="label" type="multiselect" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Payment from Specific Countries</label>
+					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+				</field>
+				
+				<field id="min_order_total" translate="label" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Minimum Order Total</label>
+					<validate>validate-number</validate>
+				</field>
+                
+				<field id="max_order_total" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Maximum Order Total</label>
+					 <validate>validate-number</validate>
+				</field>
+                
+				<field id="sort_order" translate="label" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Sort Order</label>
+				</field>
+			</group>            
+		</section>
+	</system>
+</config>

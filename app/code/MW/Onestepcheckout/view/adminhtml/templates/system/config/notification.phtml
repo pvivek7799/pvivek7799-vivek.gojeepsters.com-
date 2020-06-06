@@ -1,0 +1,12 @@
+<style>
+    #geoip-guide {
+        cursor: pointer;
+    }
+</style>
+<?php if (!$block->isHasLibrary() && !$block->isHasGeoIpDataFile()) :?>
+<div class="message message-warning error">
+    <?php echo $block->escapeHtml(__('Your Geo Ip is not installed! If you want to use Geo IP feature, please follow')) ; ?>
+        <a href="#geoip-content" ><?php echo $block->escapeHtml(__('this guide'));?></a>.
+</div>
+<?php endif;?>
+

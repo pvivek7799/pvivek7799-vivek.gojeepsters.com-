@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2019 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="aw_arep_update_period_tables" instance="Aheadworks\AdvancedReports\Cron\UpdatePeriodTables" method="execute">
+            <schedule>0 1 * * *</schedule>
+        </job>
+        <job name="aw_arep_reindex" instance="Aheadworks\AdvancedReports\Cron\Reindex" method="execute">
+            <schedule>0 2 * * *</schedule>
+        </job>
+    </group>
+</config>

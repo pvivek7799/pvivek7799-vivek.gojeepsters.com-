@@ -1,0 +1,18 @@
+<!--
+  ~ /**
+  ~  Copyright © 2016 MW. All rights reserved.
+  ~  See COPYING.txt for license details.
+  ~  */
+  -->
+
+<hidden value="Welcome to One Step Checkout Pro"></hidden>
+<hidden value="Please enter your details below to complete your purchase."></hidden>
+
+<h1 class="mw-osc-page-tittle" data-bind="text: oneStepTitle"></h1>
+<p class="mw-osc-page-content" data-bind="text: oneStepDescription"></p>
+
+<!-- ko if: isLogin() -->
+<a href="javascript:void(0);" id="onestepcheckout-logout-link"
+   data-bind="i18n: 'Logout', click: logout, visible: isShowLoginLink">
+</a>
+<!-- /ko  -->

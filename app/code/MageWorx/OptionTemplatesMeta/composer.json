@@ -1,0 +1,9 @@
+{
+    "name": "mageworx/module-optiontemplatesmeta",
+    "version": "2.6.0",
+    "type": "metapackage",
+    "require": {
+        "mageworx/module-optiontemplates": "2.5.6",
+        "mageworx/module-optionbase": "2.8.0"
+    }
+}

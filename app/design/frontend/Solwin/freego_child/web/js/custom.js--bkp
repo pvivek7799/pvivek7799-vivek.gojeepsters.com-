@@ -1,0 +1,71 @@
+require(['jquery'], function($){ 
+
+	$(document).ready(function(){
+		$('.rd-navbar-fixed, .rd-navbar-static, .rd-navbar-fullwidth, .rd-navbar-sidebar').hide();
+		$('a.close.skip-link-close.fa.fa-times').hide();
+		$('[data-target-element="#search-dropdown"]').show();
+		$('[data-target-element="#search-dropdown"]').click(function(){
+			$('.page-header__content .navigation').hide();
+			$(this).hide();
+				$('.rd-navbar-static .rd-navbar-search .form-group').css({'visibility':'visible','opacity':'1'});
+				$('a.close.skip-link-close.fa.fa-times').show();
+		});
+		$('a.close.skip-link-close.fa.fa-times').click(function(){
+			$('.rd-navbar-static .rd-navbar-search .form-group').css({'visibility':'hidden','opacity':'0'});
+			$(this).hide();
+			$('[data-target-element="#search-dropdown"]').show();
+			$('.page-header__content .navigation').show();
+		});
+		//code for checkout
+				var stepTitle = setInterval(function(){
+				if($('.checkout-index-index').length>0){
+				$('.checkout-index-index #shipping p.step-title').text('');
+				// $('.checkout-index-index #shipping p.step-title').prepend('<div id="billing-number">1</div>');
+				$('.checkout-index-index #shipping .step-title').prependTo('.checkout-index-index #shipping-new-address-form');
+				$('.checkout-payment-method .payment-option-content').show();
+				$('.opc-block-summary p.step-title').text('Review');
+				$('#shipping-new-address-form p.step-title').text('Billing');
+				// $('.checkout-index-index .opc-block-summary p.step-title title').prepend('<div id="billing-number"></div>');
+
+				// clearInterval(stepTitle);
+//				$('<div class="separator"><div></div><div></div></div>').insertBefore('#shipping-new-address-form');
+				}
+				
+				
+				},1000);
+
+				if($('body').hasClass('checkout-index-index')){
+					var discountCop = setInterval(function(){
+						if($('.payment-option._collapsible.opc-payment-additional.discount-code').length>0){
+							$('.payment-option._collapsible.opc-payment-additional.discount-code').insertAfter('#payment');
+							$('.checkout-payment-method .payment-option-content').show();
+							$('#shipping-new-address-form p.step-title').text('Billing');
+							$('.fieldset.fieldset.hidden-fields').show();
+
+							clearInterval(discountCop);
+						}
+					},1000);
+					var formlog = setInterval(function(){
+						if($('.opc-wrapper .form-login').length>0){
+					$('<div class="separator"><div></div><div></div</div>').appendTo('.opc-wrapper .form-login');
+					$('<label class="amscheckout-label">To checkout as a guest add your email below</label>').prependTo('.opc-wrapper .form-login');
+					clearInterval(formlog);
+						}
+					},1000);
+					var discCop = setInterval(function(){
+						if($('#payment').siblings('.discount-code').length>0){
+							$('.discount-code').show();
+							$('.action-toggle').trigger('click');
+							// $('#block-discount-heading').text('');
+							clearInterval(discCop);
+						}
+					},1000);
+					
+				}
+                                
+                                jQuery('.column.main > #layer-product-list .message.info.empty').insertBefore(jQuery('.amfinder-vertical'));    			
+				
+	});
+
+
+ });

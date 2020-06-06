@@ -1,0 +1,96 @@
+.customer-welcome .action.switch {
+    color: #ffffff;
+}
+#wishlist-sidebar .product-item {
+    min-height: inherit;
+}
+#wishlist-sidebar .product-item .product-item-info {
+    display: table;
+    width: 100%;
+}
+#wishlist-sidebar .product-item .product-item-info .product-item-photo {
+    position: static;
+    width: 30%;
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 15px;
+    margin: 0px;
+}
+#wishlist-sidebar .product-item .product-item-info .product-item-details {
+    width: 70%;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0px;
+}
+#wishlist-sidebar .product-item .product-item-info .product-item-photo .product-image-container .product-image-wrapper {
+    padding: 0px;
+}
+#wishlist-sidebar .product-item .product-item-info .product-item-photo .product-image-container .product-image-wrapper .product-image-photo {
+    height: auto !important;
+    width: auto !important;
+    position: static;
+}
+body .abs-actions-addto::before,
+body .product-item-actions .actions-secondary > .action::before{
+    overflow: inherit;
+}
+.checkout-payment-method .billing-address-same-as-shipping-block input {
+    vertical-align: bottom;
+    margin-top: 0px;
+}
+input[type="checkbox"],
+.form-edit-account .field input[type="checkbox"],
+.form-newsletter-manage .field input[type="checkbox"],
+.account .field input[type="checkbox"] {
+    vertical-align: bottom;
+    margin-top: 0px;
+}
+.account .page-main .block {
+    margin-bottom: 15px;
+}
+.account .fieldset {
+    margin-bottom: 20px;
+}
+.product-item .product-item-info .product-item-inner .box-tocart {
+    margin-bottom: 12px;
+}
+.header.content .compare.wrapper {
+    margin: 12px 0px;
+}
+.header.content .compare.wrapper .compare {
+    margin: 0px;
+}
+.sidebar-additional .block-content {
+margin-top: 15px;
+}
+/* responsive css */
+@media screen and (min-width: 768px){
+/* for black demo css */
+.compare.wrapper .action.compare,
+.compare.wrapper .action.compare .counter.qty   {
+    color: #fff;
+}
+.header .block-search input::placeholder {
+    color: #fff;
+    opacity: 1;
+}
+/* for black demo css */
+}
+@media screen and (max-width: 991px) and (min-width: 768px){
+#wishlist-sidebar .product-item .product-item-info .product-item-photo {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 0px 0px 10px;
+}
+#wishlist-sidebar .product-item .product-item-info .product-item-details {
+    width: 100%;
+    display: block;
+}
+}
+@media screen and (max-width: 767px) {
+    .hat-main .hat-inner,
+    .hab-main .hab-row .hab-inner {
+        margin-bottom: 15px;
+    }
+}

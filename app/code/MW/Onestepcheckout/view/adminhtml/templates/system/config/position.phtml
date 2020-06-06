@@ -1,0 +1,107 @@
+<style type="text/css">
+
+</style>
+<div class="position-config-container">
+    <em><?php echo $block->escapeHtml(__("Note: The fields have \"*\" be required.")) ?></em>
+    <br>
+    <!-- save sort order here which can be retrieved on server on postback -->
+    <?php for ($index = 0; $index < 20; $index++): ?>
+        <input id="input_row_<?php echo $index; ?>" type="hidden" name="<?php echo $block->getElementHtmlName($index) ?>" value="<?php echo $block->getUsedField()?$block->getUsedField()[$index]:'' ?>" />
+    <?php endfor; ?>
+    <br>
+    <div class="list1-container">
+        <h3 class="label"><?php echo $block->escapeHtml(__("Avaiable Fields List")) ?></h3>
+        <ul id="list1" type="avaiable">
+            <?php foreach ($block->getAvaiableFieldOptions() as $value => $field): ?>
+                <li>
+                    <div class="field-text" value="<?php echo $block->escapeHtml($value) ?>">
+                        <?php echo $block->escapeHtml($field['label']) ?>
+                        <div class="switch-type" onclick="window.switchSize(this);"></div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <div class="list2-container">
+        <h3 class="label"><?php echo $block->escapeHtml(__("Show In Frontend")) ?></h3>
+        <ul id="list2" type="result">
+            <?php $optionLabel = $block->getFieldOptions(); ?>
+            <?php $configFields = $block->getUsedField(); ?>
+            <?php for ($i = 0; $i<20; $i = $i+2): ?>
+                <?php
+                $oneRow = false;
+                if ($configFields[$i] == '0' || !$configFields[$i] || (isset($configFields[$i+1]) && $configFields[$i+1] == '0' && !$configFields[$i+1])) {
+                    $oneRow = true;
+                }
+                ?>
+                <?php for ($j=$i; $j < $i+2; $j++) : ?>
+                    <?php if ($configFields[$j] == '0' || !$configFields[$j]) : ?>
+                        <!--                        <li class="null"><div value="0"></div></li>-->
+                    <?php else : ?>
+                        <li field-required="<?php echo $block->escapeHtml(isset($optionLabel[$configFields[$j]])?$optionLabel[$configFields[$j]]['required']:'0') ?>" class="<?php echo $oneRow?'one-row':'' ?>">
+                            <div class="field-text <?php echo $block->escapeHtml((isset($optionLabel[$configFields[$j]]) && $optionLabel[$configFields[$j]]['required'])?'required':'') ?>" value="<?php echo $block->escapeHtml($configFields[$j]) ?>">
+                                <?php echo $block->escapeHtml(isset($optionLabel[$configFields[$j]])?$optionLabel[$configFields[$j]]['label']:'NULL') ?>
+                                <div class="switch-type <?php echo $oneRow?'one-row':'' ?>" onclick="window.switchSize(this);"></div>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            <?php endfor; ?>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'MW_Onestepcheckout/js/jquery.dragsort'
+        ], function ($) {
+            $("#list1, #list2").dragsort({ itemSelector: "li", dragSelector: "li", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+
+            function saveOrder() {
+                var data = [];
+                $("#list2 li").map(function() {
+                    var item = [];
+                    item['value'] = $(this).children().attr('value');
+                    item['one_row'] = $(this).hasClass('one-row')?1:0;
+                    data.push(item);
+                });
+
+                var result = [];
+                var dataIndex = 0;
+                for (var i = 0; i<20; i++) {
+                    if (data[dataIndex]) {
+                        if (data[dataIndex]['one_row']) {
+                            result[i] = data[dataIndex]['value'];
+                            result[i+1] = 0;
+                            i = i+1;
+                        } else if (!data[dataIndex]['one_row'] && data[dataIndex+1] && data[dataIndex+1]['one_row']) {
+                            if (!(data[dataIndex-1] && !data[dataIndex-1]['one_row'])) {
+                                result[i] = data[dataIndex]['value'];
+                                result[i+1] = 0;
+                                i = i+1;
+                            } else {
+                                result[i] = data[dataIndex]['value'];
+                            }
+                        } else {
+                            result[i] = data[dataIndex]['value'];
+                        }
+                    } else {
+                        result[i] = 0;
+                    }
+                    dataIndex ++;
+                }
+                <?php for ($index = 0; $index < 20; $index++): ?>
+                $("#input_row_<?php echo $index; ?>").val(result['<?php echo $index; ?>']?result['<?php echo $index; ?>']:0);
+                <?php endfor; ?>
+            };
+
+            window.switchSize = function(elm) {
+                $(elm).toggleClass('one-row');
+                $(elm).parent().parent().toggleClass('one-row');
+                saveOrder();
+            }
+        });
+    </script>
+
+    <div style="clear:both;"></div>
+</div>

@@ -1,0 +1,20 @@
+<?php
+/**
+ * Mage-World
+ *
+ *  @category    Mage-World
+ *  @package     MW
+ *  @author      Mage-world Developer
+ *
+ *  @copyright   Copyright (c) 2018 Mage-World (https://www.mage-world.com/)
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_source  = $block->getSource() ?>
+<?php $block->setPriceDataObject($_source) ?>
+<tr>
+    <td class="label"><?= /* @escapeNotVerified */ __('Giftwrap Fee') ?></td>
+    <td <?= $block->getHtmlClass() ? ('class="' . $block->getHtmlClass() . '"') : '' ?>><?= /* @escapeNotVerified */ $block->displayPriceAttribute('giftwrap_amount') ?></td>
+</tr>

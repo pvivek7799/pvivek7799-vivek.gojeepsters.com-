@@ -1,0 +1,81 @@
+<?php
+$_dataHelper = $this->helper(\MW\Onestepcheckout\Helper\Data::class);
+$styleConfig = 3;
+$giftMessageImageUrl = $block->getViewFileUrl('MW_Onestepcheckout::css/images/bkg-giftmessage.png');
+
+// Color heading text
+$headingTextColorConfig = $block->getHeadingTextColor();
+if ($headingTextColorConfig == '') {
+    $headingTextColor = '#337BAA';
+} else {
+    $headingTextColor = $headingTextColorConfig;
+}
+
+// Color Step Number Icon
+$stepNumberIconColorConfig = $block->getStepNumberIconColor();
+if ($stepNumberIconColorConfig == '') {
+    $colorIconHeader = '#337BAA';
+} else {
+    $colorIconHeader = $stepNumberIconColorConfig;
+}
+
+// Color order summary background
+$orderSummaryColorConfig = $block->getSummaryColor();
+if ($orderSummaryColorConfig == '') {
+    $colorOrderSummary = '#337BAA';
+} else {
+    $colorOrderSummary =  $orderSummaryColorConfig;
+}
+
+// Color checkout background
+$checkoutBackgroundColorConfig = $block->getCheckoutBackgroundColor();
+if ($checkoutBackgroundColorConfig == '') {
+    $colorCheckoutBackground = '#337BAA';
+} else {
+    $colorCheckoutBackground = $checkoutBackgroundColorConfig;
+}
+
+// Color button checkout
+$checkoutColor = $block->getButtonColor();
+if ($checkoutColor == '') {
+    $checkoutColor = '#000';
+}
+?>
+
+<style type="text/css">
+    #checkout-review-load {
+        background-color: <?php echo $colorOrderSummary ?> !important;
+    }
+
+    #onestepcheckout_place_order_button .button  {
+        background-color: <?php echo $colorCheckoutBackground ?> !important;
+        border-color: <?php echo $colorCheckoutBackground ?> !important;
+        color: <?php echo $checkoutColor ?> !important;
+    }
+    
+
+    #onestep_form .mw-osc-block-title .onestepcheckout-numbers {
+      
+        color: <?php echo $headingTextColor ?> !important;
+    }
+
+    #onestep_form .mw-osc-block-title .onestepcheckout-numbers::before {
+        border-color: <?php echo $colorIconHeader ?> !important;
+        color: <?php echo $colorIconHeader ?> !important;
+    }
+
+    #onestep_form .mw-osc-block-title .onestepcheckout-numbers::after {
+        border-left-color: <?php echo $colorIconHeader ?> !important;
+        border-bottom-color: <?php echo $colorIconHeader ?> !important;
+    }
+</style>
+
+<script>
+    if(typeof onestepConfig == "undefined"){
+        var onestepConfig = {};
+    }
+    onestepConfig.styleColor = "<?php echo $headingTextColor;?>";
+    onestepConfig.styleHeadingTextColor = "<?php echo '#' . $headingTextColorConfig;?>";
+    onestepConfig.colorOrderSummary = "<?php echo $colorOrderSummary; ?>";
+    onestepConfig.colorCheckoutBackground = "<?php echo $colorCheckoutBackground; ?>";
+</script>

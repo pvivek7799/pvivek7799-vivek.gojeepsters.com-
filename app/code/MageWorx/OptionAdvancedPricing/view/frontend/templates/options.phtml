@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+/** @var \MageWorx\OptionAdvancedPricing\Block\Config $block */
+?>
+<script>
+    require([
+        'jquery',
+        'optionAdvancedPricing',
+        'uiRegistry'
+    ], function ($, optionAdvancedPricing, registry) {
+        var optionBase = registry.get('mageworxOptionBase');
+        if (optionBase) {
+            optionBase.addUpdater(
+                35,
+                optionAdvancedPricing(<?php echo $block->getJsonData();?>)
+            );
+        } else {
+            var updaters = registry.get('mageworxOptionUpdaters');
+            if (!updaters) {
+                updaters = {};
+            }
+            updaters[35] = optionAdvancedPricing(<?php echo $block->getJsonData();?>);
+            registry.set('mageworxOptionUpdaters', updaters);
+        }
+    });
+</script>

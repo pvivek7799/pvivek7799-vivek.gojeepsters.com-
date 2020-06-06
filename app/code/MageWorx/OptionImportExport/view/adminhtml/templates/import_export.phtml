@@ -1,0 +1,114 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<?php /**@var $block \MageWorx\OptionImportExport\Block\Adminhtml\ImportExport */ ?>
+<?php $mageOneCustomerGroupIds = $block->getMageOneCustomerGroupIds(); ?>
+<?php $mageOneStoreIds = $block->getMageOneStoreIds(); ?>
+<?php $mageTwoCustomerGroups = $block->getCustomerGroups(); ?>
+<?php $mageTwoStores = $block->getStores(); ?>
+<div class="mageworx-optiontemplates-import-export">
+    <?php if (!$block->getIsReadonly()): ?>
+        <div class="mageworx-optiontemplates-import">
+            <?php if ($block->getUseContainer()): ?>
+            <form id="import-form" class="admin__fieldset"
+                  action="<?= $block->getUrl('mageworx_optionimportexport/importExport/importTemplateMageOne') ?>"
+                  method="post"
+                  enctype="multipart/form-data"
+            >
+                <?php endif; ?>
+                <?= $block->getBlockHtml('formkey') ?>
+                <?php if (!empty($mageOneCustomerGroupIds) && is_array($mageOneCustomerGroupIds)) : ?>
+                    <legend class="admin__legend legend">
+                        <span><?= __("Customer Groups") ?></span>
+                    </legend>
+                    <?php foreach ($mageOneCustomerGroupIds as $mageOneCustomerGroupId): ?>
+                        <div class="fieldset admin__field">
+                            <label for="mageworx_optiontemplates_import_mage_one_customer_groups"
+                                   class="admin__field-label">
+                                <span><?= __(
+                                        "Select equivalent for M1 customer group"
+                                    ) . " '" . $mageOneCustomerGroupId . "'" ?></span>
+                            </label>
+                            <div class="admin__field-control">
+                                <select type="select"
+                                        id="mageworx_optiontemplates_import_mage_one_customer_groups"
+                                        name="mageworx_optiontemplates_import_mage_one_customer_groups[<?= $mageOneCustomerGroupId ?>]"
+                                        class="select admin__control-select"
+                                >
+                                    <option value><?= __('Ignore') ?></option>
+                                    <?php foreach ($mageTwoCustomerGroups as $mageTwoCustomerGroup): ?>
+                                        <option value="<?= $mageTwoCustomerGroup['value'] ?>"><?= $mageTwoCustomerGroup['label'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if (!empty($mageOneStoreIds) && is_array($mageOneStoreIds)) : ?>
+                    <legend class="admin__legend legend">
+                        <span><?= __("Stores") ?></span>
+                    </legend>
+                    <?php foreach ($mageOneStoreIds as $mageOneStoreId): ?>
+                        <div class="fieldset admin__field">
+                            <label for="mageworx_optiontemplates_import_mage_one_stores"
+                                   class="admin__field-label">
+                                <span><?= __("Select equivalent for M1 store") . " '" . $mageOneStoreId . "'" ?></span>
+                            </label>
+                            <div class="admin__field-control">
+                                <select type="select"
+                                        id="mageworx_optiontemplates_import_mage_one_stores"
+                                        name="mageworx_optiontemplates_import_mage_one_stores[<?= $mageOneStoreId ?>]"
+                                        class="select admin__control-select"
+                                >
+                                    <option value><?= __('Ignore') ?></option>
+                                    <?php foreach ($mageTwoStores as $mageTwoStore): ?>
+                                        <option value="<?= $mageTwoStore['value'] ?>"><?= $mageTwoStore['label'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <legend class="admin__legend legend">
+                    <span><?= __("Import") ?></span>
+                </legend>
+                <div class="fieldset admin__field">
+                    <label for="mageworx_optiontemplates_import_magento_one_file"
+                           class="admin__field-label"><span><?= __(
+                                'Import Magento 1 Option Templates'
+                            ) ?></span></label>
+                    <div class="admin__field-control">
+                        <input type="file" id="mageworx_optiontemplates_import_magento_one_file"
+                               name="mageworx_optiontemplates_import_magento_one_file"
+                               class="input-file required-entry"/>
+                        <?= $block->getButtonHtml(__('Import Magento 1 Option Templates'), '', 'import-submit') ?>
+                    </div>
+                </div>
+                <?php if ($block->getUseContainer()): ?>
+            </form>
+        <?php endif; ?>
+            <script>
+                require(['jquery', "mage/mage", "loadingPopup"], function (jQuery) {
+
+                    jQuery('#import-form').mage('form').mage('validation');
+                    (function ($) {
+                        $('.import-submit').click(function () {
+                            if ($(':input[name="mageworx_optiontemplates_import_magento_one_file"]').val()) {
+                                $('body').loadingPopup({
+                                    timeout: false
+                                });
+
+                                $(this.form).submit();
+                            }
+                        });
+                    })(jQuery);
+
+                });
+            </script>
+        </div>
+    <?php endif; ?>
+</div>

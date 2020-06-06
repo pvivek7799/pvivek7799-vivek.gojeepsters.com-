@@ -1,0 +1,10 @@
+<div class="amcheckout-delivery-date" data-bind="blockLoader: isLoading">
+    <p class="step-title" data-bind="i18n: getDeliveryDateName()" data-role="title"></p>
+
+    <div>
+        <each args="data: elems, as: 'element'">
+            <render if="hasTemplate()"/>
+        </each>
+        <div class="clearer"></div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+/*
+ * Mage-World
+ *
+ * @category    Mage-World
+ * @package     MW
+ * @author      Mage-world Developer
+ *
+ * @copyright   Copyright (c) 2018 Mage-World (https://www.mage-world.com/)
+ */
+
+.position-config-container h1 { font-size:16pt; }
+.position-config-container h2 { font-size:13pt; }
+.position-config-container ul { margin:0px; padding:0px; margin-left:20px; }
+.position-config-container .list1-container, .position-config-container .list2-container {width: 45%; background-color: #f5f5f5; display: inline-block; padding: 2%;}
+.position-config-container #list1, .position-config-container #list2 {list-style-type:none; margin:0px; background-color: #f5f5f5}
+.position-config-container #list1 li, .position-config-container #list2 li { float:left; padding:1%; width:45%; }
+.position-config-container .list1-container h3.label, .position-config-container .list2-container h3.label { margin-bottom: 20px !important; border-bottom: 1px solid #dfdfdf; width: 100% !important; text-align: left !important;}
+.position-config-container #list2 li.one-row { width:92%; }
+.position-config-container #list2 li.null {display: none;}
+.position-config-container #list1 div, .position-config-container #list2 div { position: relative; height:40px; border:solid 1px #a7a7a7; background-color:#fff; color:#484848; text-align:center; padding-top: 20px; border-radius: 15px; box-shadow: 0 0.5px 2px 0px;}
+.position-config-container #list1 div.required:after, .position-config-container #list2 div.required:after {content: '*'; color: red;}
+.position-config-container #list2 div .switch-type {cursor: pointer;position: absolute;right: 2px;bottom: 2px;width: 20px;height: 0px;background-color: #fff;border-radius: 50%; border: solid 0px #a7a7a7;}
+/*.position-config-container #list2 div .switch-type.one-row {background-color: #eb5202;}*/
+.position-config-container #list1 div .switch-type {display: none;}
+.position-config-container #list2 { float:right; }
+.position-config-container .placeHolder div { background-color:white !important; border:dashed 1px gray !important; }
+
+/*@font-face {*/
+    /*font-family: 'icomoon';*/
+    /*src:  url('../font/icomoon/icomoon.eot');*/
+    /*src:  url('../font/icomoon/icomoon.eot#iefix') format('embedded-opentype'),*/
+    /*url('../font/icomoon/icomoon.ttf') format('truetype'),*/
+    /*url('../font/icomoon/icomoon.woff') format('woff'),*/
+    /*url('../font/icomoon/icomoon.svg#icomoon') format('svg');*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+/*}*/
+
+.position-config-container .switch-type {
+    background: url("../images/icon_ex.png") no-repeat;
+    background-size: 100%;
+}
+.position-config-container .switch-type.one-row {
+    background: url("../images/icon_na.png") no-repeat;
+    background-size: 100%;
+}
+
+/*.position-config-container .switch-type:after {*/
+/*font-family: 'icomoon' !important;*/
+/*cursor: pointer;*/
+/*position: absolute;*/
+/*right: 3px;*/
+/*bottom: 0;*/
+/*!*content: "\ea3c";*!*/
+/*content: "";*/
+/*background-image: url("../images/icon_ex.png");*/
+/*}*/
+/*.position-config-container .switch-type.one-row:after {*/
+/*!*content: "\ea40";*!*/
+/*background-image: url("../images/icon_na.png");*/
+/*}*/

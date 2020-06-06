@@ -1,0 +1,118 @@
+<div class="home-section">
+    
+<!--<div class="home_bnr">
+    <a href="#"><img src="<?php echo $block->getBaseurl(); ?>pub/media/wysiwyg/home/jeepsters_banner4.jpg" /></a>
+</div>-->
+
+<div class="home_add home_add_bnr_mrgn">
+	
+	
+	<?php echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('ltwp')
+          ->toHtml(); ?>
+	
+<!--<div class="home_add_bnr ">
+    <div  class=" relative"><a href="/packages/lift-tire-wheel-package.html">
+	<img src="<?php echo $block->getBaseurl(); ?>pub/media/wysiwyg/home/lift-wheel-tire-packages (1).jpeg" ><p class="absolute-text">COMING SOON</p> </a></div>
+    <h2>Lift Tire Wheel Packages</h2>
+</div>-->
+
+<!--<div class="home_add_bnr home_add_bnr_padd">
+    <div  class=" relative"><a href="/packages/bumper-packages.html"><img src="<?php echo $block->getBaseurl(); ?>pub/media/wysiwyg/home/bumper-packages.jpg" /><p class="absolute-text">COMING SOON</p></a></div>
+    <h2>Bumper Packages</h2>
+</div> -->
+
+ <?php echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('bp')
+          ->toHtml(); ?>
+
+
+</div>    
+    
+<div class="home_add ">    
+
+<?php echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('lp')
+          ->toHtml(); ?>
+
+   
+<!--<div class="home_add_bnr ">
+    <div  class=" relative"><a href="/packages/light-packages.html"><img src="<?php echo $block->getBaseurl(); ?>pub/media/wysiwyg/home/light-packages.jpg" /><p class="absolute-text">COMING SOON</p> </a></div>
+    <h2>Light Packages</h2>
+</div> --> 
+<?php echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId('twp')
+          ->toHtml(); ?>
+<!--<div class="home_add_bnr home_add_bnr_padd">
+    <div class=" relative"><a href="/packages/tire-wheel-packages.html"><img src="<?php echo $block->getBaseurl(); ?>pub/media/wysiwyg/home/tyre-wheel-package.jpg" /><p class="absolute-text">COMING SOON</p></a></div>
+    <h2>Tire Wheel Packages</h2>
+</div>-->
+       
+</div>
+<!--<div class="best_sellers">
+    <h2 class="bst_slrs">Best Sellers</h2>
+
+</div>-->
+</div>
+<style type="text/css">
+	p.mp-ps-info{padding-top:0px;}
+    .relative{position:relative;}
+		.navigation .level0 .submenu .submenu .submenu{margin-top:-5px !important; }
+.home_add{    margin-top: 4em;}
+.absolute-text{  font-family:'PT Sans'; font-weight:bold; top: 40%;position:absolute; font-size:30px; width:100%; text-align:center;color:#fff;}
+.absolute-text a{font-size:16px; color:#b92b27;}
+.home_add_bnr h2{font-size: 28px;padding-bottom: 2px;padding: 8px 0px;    margin: 0;    top: -5px;background-color:#050505e0;}
+.cms-home .mp-product-slider-block .owl-prev ,.cms-home .mp-product-slider-block owl-next{font-size:22px;}
+.home_add_bnr img{    width: 100%;    height: 180px;}
+.cms-home ol.product-items.widget-viewed-grid{text-align: -webkit-center;}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+	.home_add_bnr:nth-child(1) img{    min-height: auto;}
+	.page-header .head-cls.custom{    width: 260px !important;text-align: center;margin:0px auto;}
+	.cms-home span.product-image-wrapper{padding-right: 125% !important;}
+	.home_add .home_add_bnr .relative{height: 100px;}
+	.home_add_bnr img{height:100px;}
+	.home_add_bnr h2	{top:0px !important;}
+	.home_add .home_add_bnr{    margin-top: 2em !important;}
+	.page-header .head-cls{    width: 38% !important;}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+		h2.logo_title{    font-size: 22px;}
+	.navigation .level0 .submenu{    min-width: 203px;}
+	.page-header .head-cls{    float: right !important;}
+	.header-right-cntnt .head-cls:nth-child(2){padding-right:0px !important;}
+	.header-right-cntnt .head-cls:nth-child(2),.header-right-cntnt .head-cls:nth-child(1){    padding-top: 1em important;}
+	.catalog-category-view .page-header .head-cls{    width: 20% !important;float: right !important;}
+	.catalog-category-view  h2.logo_title{    font-size: 25px;}
+	.catalog-category-view  .header-right-cntnt{float:right;}
+	.catalog-category-view  .page-header .head-cls{float:right !important;}
+	.home_add{    margin-top: 3em;}
+	.home_add_bnr img{    width: 100%;    height: 100px;}
+}
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+	.home_add_bnr:nth-child(1) img{    height: 180px;}
+	
+	.home_add_bnr img{    width: 100%;    height: 180px;}
+}
+@media screen and (min-width: 1367px) and (max-width: 3000px) {
+.home_add_bnr img{    width: 100%;    height: 250px;}
+.home_add_bnr h2{    width: 100%;}
+}
+@media screen and (min-width: 1024px) and (max-width: 2047px) {
+.home_add_bnr img{    height: 180px;}
+}
+@media screen and (min-width: 2048px) and (max-width: 2560px) {
+.home_add{padding-left:3em;}
+.home_add_bnr{    width: 46%;}
+.home-section{padding-left: 2em;}
+.header-right-cntnt{    width: 85%;    float: right;}
+.page-header .header.content .col-md-3 .head-cls-left, .head-cls-right{    width: 36%;float: left;}
+.home_add_bnr img{    height: 280px;}
+}
+.cms-index-index .owl-carousel.owl-theme.owl-loaded.owl-drag,.cms-index-index .products-grid .owl-carousel,.cms-index-index .mp-product-slider-block.block.widget.block-products-list.grid{z-index:-1;position:relative;}
+</style>
+
+

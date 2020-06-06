@@ -1,0 +1,79 @@
+<?php $custompricehelper = $this->helper('Magecomp\Customprice\Helper\Data');
+ $getprice = "";
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart test">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
+            <div class="control">
+                <input type="number"
+                       name="qty"
+                       id="qty"
+                       value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                       title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                       class="input-text qty" style="width:25% !important; text-align: center;"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                       />
+            </div>
+        </div>
+        <?php endif; ?>
+        <?php $getprice = $custompricehelper->getCustomPrice($_product);?>
+        <?php if ($getprice):?>
+            <div class="field">
+                <label class="custom-price-label" for="custom-price-label"><span><?= /* @escapeNotVerified */ __($custompricehelper->Frontendlabel()) ?></span></label>
+                <div class="custom-price-textbox-div">
+                    <input type="number"
+                           name="cprice"
+                           id="cprice"
+                           value="1"
+                           title="<?= /* @escapeNotVerified */ __('customprice') ?>"
+                           class="custom-price-textbox" style="width:25% !important; text-align: center;"
+                           min="1"/>
+                </div>
+            </div>
+        <?php endif;?>
+
+        <div class="actions">
+            <button type="submit"
+                    title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button">
+                <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<?php if($custompricehelper->isModuleEnabled()): ?>
+<script>
+    require(['jquery', 'jquery/ui'], function($){
+        jQuery(document).ready( function() {
+            jQuery("#product-addtocart-button").click(function(event){
+                var textboxprice = jQuery("#cprice").val();
+
+                if(textboxprice == ''){
+                    alert("Please Enter Your Price.");
+                    return false;
+                }
+                var configprice = <?php echo $getprice ?>;
+                if(configprice > textboxprice) {
+                    alert('You are not allowed to enter price lower than set minimum amount.');
+                    event.preventDefault();
+                }
+            });
+        });
+    });
+</script>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ /**
+  ~  Copyright © 2016 MW. All rights reserved.
+  ~  See COPYING.txt for license details.
+  ~  */
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mw_onestepcheckout>
+            <general>
+                <active>1</active>
+                <redirect_to_checkout>0</redirect_to_checkout>
+                <suggest_address>0</suggest_address>
+                <checkout_title>Checkout</checkout_title>
+                <edit_product_qty>0</edit_product_qty>
+                <!--<login_link_title>Click here to login or create a new account</login_link_title>-->
+            </general>
+            <delivery_information>
+                <delivery_time_date>0</delivery_time_date>
+                <is_enable_security_code>0</is_enable_security_code>
+            </delivery_information>
+            <display_configuration>
+                <show_comment>0</show_comment>
+                <show_newsletter>1</show_newsletter>
+                <newsletter_default_checked>1</newsletter_default_checked>
+                <show_discount>1</show_discount>
+                <order_review_image>1</order_review_image>
+                <enable_items_image>0</enable_items_image>
+            </display_configuration>
+            <field_position_management>
+                <row_0>firstname</row_0>
+                <row_1>lastname</row_1>
+                <row_2>0</row_2>
+                <row_3>telephone</row_3>
+                <row_4>street</row_4>
+                <row_5>0</row_5>
+                <row_6>country_id</row_6>
+                <row_7>0</row_7>
+                <row_8>city</row_8>
+                <row_9>0</row_9>
+                <row_10>postcode</row_10>
+                <row_11>region_id</row_11>
+                <row_12>0</row_12>
+                <row_13>0</row_13>
+                <row_14>0</row_14>
+                <row_15>0</row_15>
+                <row_16>0</row_16>
+                <row_17>0</row_17>
+                <row_18>0</row_18>
+                <row_19>0</row_19>
+            </field_position_management>
+
+            <geoip_management>
+                <geo_ip>0</geo_ip>
+            </geoip_management>
+            <style_management>
+                <button>FFFFFF</button>
+                <style>333333</style>
+                <heading_text_color>333333</heading_text_color>
+                <summary_color>FBE5CF</summary_color>
+                <checkout_background_color>FF1427</checkout_background_color>
+                <step_number_icon_color>337BAA</step_number_icon_color>
+            </style_management>
+        </mw_onestepcheckout>
+    </default>
+</config>
