@@ -50,13 +50,18 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
             $items = $quote->getAllItems();
 			foreach($items as $item) {
 			 $product_id = $item->getProductId();
+			 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+			$product = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+			$id = $product ->getTireTax();
 			 $categoryIds = $this->productCategory->getCategoryIds($product_id);
-			if (in_array("5", $categoryIds)){
+			if (in_array(5, $categoryIds) ||($id == 187)){
 				$qty = $item->getQty();
-				$fee[] = $qty *1; 
+				$fee[] = $qty *2; 
 			}
 
 		  }
+
+
 			$fee = array_sum($fee);
 			$total->setTotalAmount('fee', $fee);
             $total->setBaseTotalAmount('fee', $fee);
@@ -64,7 +69,6 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
             $quote->setFee($fee);
             
 			
-			$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 			$productMetadata = $objectManager->get('Magento\Framework\App\ProductMetadataInterface');
 			$version = (float)$productMetadata->getVersion(); 
 			
