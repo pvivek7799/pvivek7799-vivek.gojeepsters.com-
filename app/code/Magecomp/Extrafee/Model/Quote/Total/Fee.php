@@ -56,7 +56,7 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 			 $categoryIds = $this->productCategory->getCategoryIds($product_id);
 			if (in_array(5, $categoryIds) ||($id == 187)){
 				$qty = $item->getQty();
-				$fee[] = $qty *2; 
+				$fee[] = $qty *1; 
 			}
 
 		  }

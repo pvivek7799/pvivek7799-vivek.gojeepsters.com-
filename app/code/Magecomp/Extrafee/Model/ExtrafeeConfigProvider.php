@@ -63,7 +63,7 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
 			$id = $product ->getTireTax();
 			$categoryIds = $this->productCategory->getCategoryIds($product_id);
 			if (in_array(5, $categoryIds) ||($id == 187)){
-				$fee[] = $item->getQty() *2;				
+				$fee[] = $item->getQty() *1;				
 			}
 			
 		  }
