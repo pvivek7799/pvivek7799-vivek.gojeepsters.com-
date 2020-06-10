@@ -60,10 +60,17 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
 			//$Ids = $product->getCategoryIds();
 			$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 			$product = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
-			$id = $product ->getTireTax();
+			//$id = $product ->getTireTax();
+			$pkg = $product ->getTirePkg();
 			$categoryIds = $this->productCategory->getCategoryIds($product_id);
-			if (in_array(5, $categoryIds) ||($id == 187)){
+			if (in_array(5, $categoryIds)){
 				$fee[] = $item->getQty() *1;				
+			}
+			if($pkg){
+				$qty = $item->getQty();
+				$fee[] = $pkg *$qty;
+
+				
 			}
 			
 		  }
