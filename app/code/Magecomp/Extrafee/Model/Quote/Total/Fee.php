@@ -52,11 +52,17 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 			 $product_id = $item->getProductId();
 			 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 			$product = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
-			$id = $product ->getTireTax();
-			 $categoryIds = $this->productCategory->getCategoryIds($product_id);
-			if (in_array(5, $categoryIds) ||($id == 187)){
+			//$id = $product ->getTireTax();
+			$pkg = $product ->getTirePkg();
+			$categoryIds = $this->productCategory->getCategoryIds($product_id);
+			if (in_array(5, $categoryIds)){
 				$qty = $item->getQty();
 				$fee[] = $qty *1; 
+			}
+			if($pkg){
+				$qty = $item->getQty();
+				$fee[] = $pkg *$qty;
+				
 			}
 
 		  }
